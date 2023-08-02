@@ -2,8 +2,8 @@
 cd $(dirname $0)
 cd ..
 
-source ~/.bashrc
-source ./scripts/utils.sh
+# source ~/.bashrc
+# source ./scripts/utils.sh
 
 root_path="$(pwd)/../../../.."
 export PYTHONPATH="$root_path/":$PYTHONPATH
