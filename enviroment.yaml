@@ -8,6 +8,7 @@ dependencies:
   - rdkit
   - paddlepaddle-gpu=2.5.1
   - cudatoolkit=11.2
+  - pip
   - pip:
     - pgl
     - scikit-learn
