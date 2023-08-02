@@ -18,6 +18,7 @@ for dataset in $datasets; do
 	data_path="./chemrl_downstream_datasets/$dataset"
 	cached_data_path="./cached_data/$dataset"
 	if [ ! -f "$cached_data_path.done" ]; then
+		echo "avali ejra mmesha"
 		rm -r $cached_data_path
 		python finetune_regr.py \
 				--task=data \
@@ -46,9 +47,11 @@ for dataset in $datasets; do
 	fi
 	for model_config in $model_config_list; do
 		for lrs in $lrs_list; do
+			echo "dovomi ejra mmesha"
 			IFS=, read -r -a array <<< "$lrs"
 			lr=${array[0]}
 			head_lr=${array[1]}
+
 			for dropout_rate in $drop_list; do
 				log_dir="$log_prefix-$dataset"
 				log_file="$log_dir/lr${lr}_${head_lr}-drop${dropout_rate}.txt"
