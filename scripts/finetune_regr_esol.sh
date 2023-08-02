@@ -48,7 +48,6 @@ for dataset in $datasets; do
 	for model_config in $model_config_list; do
 		for lrs in $lrs_list; do
 			echo "dovomi ejra mmesha"
-			IFS=, read -r -a array <<< "$lrs"
 			lr=${array[0]}
 			head_lr=${array[1]}
 
