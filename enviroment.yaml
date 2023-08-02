@@ -13,3 +13,4 @@ dependencies:
     - pgl
     - scikit-learn
     - networkx
+    - ujson
