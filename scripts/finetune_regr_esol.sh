@@ -20,7 +20,7 @@ for dataset in $datasets; do
 	if [ ! -f "$cached_data_path.done" ]; then
 		echo "avali ejra mmesha"
 		rm -r $cached_data_path
-		python finetune_regr.py \
+		/opt/conda/envs/py37/bin/python finetune_regr.py \
 				--task=data \
 				--num_workers=10 \
 				--dataset_name=$dataset \
@@ -58,7 +58,7 @@ for dataset in $datasets; do
 				mkdir -p $log_dir
 				for time in $(seq 1 4); do
 					{
-						CUDA_VISIBLE_DEVICES=0 python finetune_regr.py \
+						CUDA_VISIBLE_DEVICES=0 /opt/conda/envs/py37/bin/python finetune_regr.py \
 								--batch_size=$batch_size \
 								--max_epoch=100 \
 								--dataset_name=$dataset \
