@@ -37,7 +37,7 @@ from sklearn.metrics import roc_auc_score
 from paddle import fluid
 
 from pahelix.utils.splitters import \
-    RandomSplitter, IndexSplitter, ScaffoldSplitter, RandomScaffoldSplitter
+    RandomSplitter, IndexSplitter, ScaffoldSplitter, RandomScaffoldSplitter,SavedSplitter
 from pahelix.datasets import *
 from pahelix.datasets.qm9_gdb_dataset import *
 
@@ -150,6 +150,8 @@ def create_splitter(split_type):
         splitter = ScaffoldSplitter()
     elif split_type == 'random_scaffold':
         splitter = RandomScaffoldSplitter()
+    elif split_type == "saved":
+        splitter =SavedSplitter()
     else:
         raise ValueError('%s not supported' % split_type)
     return splitter

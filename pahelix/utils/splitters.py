@@ -205,7 +205,21 @@ class ScaffoldSplitter(Splitter):
         test_dataset = dataset[test_idx]
         return train_dataset, valid_dataset, test_dataset
 
-
+class SavedSplitter(Splitter):
+    def __init__(self):
+        super(SavedSplitter, self).__init__()
+    def split(self, 
+            dataset, 
+            file):
+        splits=np.load(file)
+        splits=dict(splits)
+        idx_train=splits["idx_train"]
+        idx_val=splits["idx_val"]
+        idx_test=splits["idx_test"]
+        train_dataset = dataset[list(idx_train)]
+        valid_dataset = dataset[list(idx_val)]
+        test_dataset = dataset[list(idx_test)]
+        return train_dataset, valid_dataset, test_dataset
 class RandomScaffoldSplitter(Splitter):
     """
     Adapted from https://github.com/pfnet-research/chainer-chemistry/blob/master/chainer_chemistry/dataset/splitters/scaffold_splitter.py

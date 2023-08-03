@@ -192,7 +192,7 @@ def main(args):
 
     splitter = create_splitter(args.split_type)
     train_dataset, valid_dataset, test_dataset = splitter.split(
-            dataset, frac_train=0.8, frac_valid=0.1, frac_test=0.1)
+            dataset, "splits.npz")
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train min/max/mean %s/%s/%s' % get_label_stat(train_dataset))
@@ -263,7 +263,7 @@ if __name__ == '__main__':
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--cached_data_path", type=str, default=None)
     parser.add_argument("--split_type", 
-            choices=['random', 'scaffold', 'random_scaffold', 'index'])
+            choices=['random', 'scaffold', 'random_scaffold', 'index','saved'])
 
     parser.add_argument("--compound_encoder_config", type=str)
     parser.add_argument("--model_config", type=str)
