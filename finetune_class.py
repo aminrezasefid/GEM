@@ -172,7 +172,7 @@ def main(args):
 
     splitter = create_splitter(args.split_type)
     train_dataset, valid_dataset, test_dataset = splitter.split(
-            dataset, frac_train=0.8, frac_valid=0.1, frac_test=0.1)
+            dataset, "splits.npz")
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train pos/neg ratio %s/%s' % get_pos_neg_ratio(train_dataset))
