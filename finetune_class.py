@@ -243,7 +243,7 @@ if __name__ == '__main__':
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--cached_data_path", type=str, default=None)
     parser.add_argument("--split_type", 
-            choices=['random', 'scaffold', 'random_scaffold', 'index'])
+            choices=['random', 'scaffold', 'random_scaffold', 'index','saved'])
 
     parser.add_argument("--compound_encoder_config", type=str)
     parser.add_argument("--model_config", type=str)
