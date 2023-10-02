@@ -133,6 +133,10 @@ def main(args):
     head_params = exempt_parameters(model.parameters(), encoder_params)
     encoder_opt = paddle.optimizer.Adam(args.encoder_lr, parameters=encoder_params)
     head_opt = paddle.optimizer.Adam(args.head_lr, parameters=head_params)
+    params=0
+    for p in model.parameters():
+        params+=p.numel()
+    print(params)
     print('Total param num: %s' % (len(model.parameters())))
     print('Encoder param num: %s' % (len(encoder_params)))
     print('Head param num: %s' % (len(head_params)))
