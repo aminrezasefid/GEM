@@ -193,7 +193,7 @@ def main(args):
 
     splitter = create_splitter(args.split_type)
     train_dataset, valid_dataset, test_dataset = splitter.split(
-            dataset, "splits.npz")
+            dataset)
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train min/max/mean %s/%s/%s' % get_label_stat(train_dataset))
