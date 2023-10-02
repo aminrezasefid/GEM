@@ -1,0 +1,4 @@
+python finetune_regr.py --task=data --num_workers=1 --dataset_name=esol --data_path=chemrl_downstream_datasets/esol/ --cached_data_path=cached_data/esol/ --compound_encoder_config="model_configs/geognn_l8.json" --model_config="model_configs/down_mlp2.json"
+
+
+python finetune_regr.py --batch_size=128 --max_epoch=1 --dataset_name=esol --split_type=scaffold --data_path=./chemrl_downstream_datasets/esol --cached_data_path=./cached_data/esol --compound_encoder_config=model_configs/geognn_l8.json --model_config=model_configs/down_mlp2.json --init_model=./pretrain_models-chemrl_gem/regr.pdparams --model_dir=./output/chemrl_gem/finetune/esol --encoder_lr=1e-3 --head_lr=4e-3 --dropout_rate=0.1
