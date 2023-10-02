@@ -175,9 +175,10 @@ def main(args):
     ### load data    
     if args.task == 'data':
         print('Preprocessing data...')
+        pickfile="cached_data/lipo/lipo.pkl"
         pickfile=None
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
-        transform_fn = DownstreamTransformFn(pos_file=pickfile)
+        transform_fn = DownstreamTransformFn(pos_file=pickfile,use_mmff=args.use_mmff)
         dataset.transform(transform_fn, num_workers=args.num_workers)
         dataset.save_data(args.cached_data_path)
         return
@@ -253,7 +254,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--task", choices=['train', 'data'], default='train')
-
+    parser.add_argument("--use_mmff",action='store_true')
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--num_workers", type=int, default=4)
     parser.add_argument("--max_epoch", type=int, default=100)
@@ -273,5 +274,5 @@ if __name__ == '__main__':
     parser.add_argument("--head_lr", type=float, default=0.001)
     parser.add_argument("--dropout_rate", type=float, default=0.2)
     args = parser.parse_args()
-    
+    print(args)
     main(args)
