@@ -192,8 +192,7 @@ def main(args):
             dataset = InMemoryDataset(npz_data_path=args.cached_data_path)
 
     splitter = create_splitter(args.split_type)
-    train_dataset, valid_dataset, test_dataset = splitter.split(
-            dataset)
+    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.8,0.1,0.1)
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train min/max/mean %s/%s/%s' % get_label_stat(train_dataset))
