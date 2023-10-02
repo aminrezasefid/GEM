@@ -668,12 +668,16 @@ def mol_to_geognn_graph_data(mol, atom_poses, dir_type):
     return data
 
 
-def mol_to_geognn_graph_data_MMFF3d(mol):
+def mol_to_geognn_graph_data_MMFF3d(mol,smiles,pos_dic=None):
     """tbd"""
-    if len(mol.GetAtoms()) <= 400:
-        mol, atom_poses = Compound3DKit.get_MMFF_atom_poses(mol, numConfs=10)
+    if pos_dic is not None and smiles in pos_dic.keys():
+        conf=pos_dic[smiles][0].GetConformer()
+        atom_poses=Compound3DKit.get_atom_poses(mol,conf)
     else:
-        atom_poses = Compound3DKit.get_2d_atom_poses(mol)
+        if len(mol.GetAtoms()) <= 400:
+            mol, atom_poses = Compound3DKit.get_MMFF_atom_poses(mol, numConfs=10)
+        else:
+            atom_poses = Compound3DKit.get_2d_atom_poses(mol)
     return mol_to_geognn_graph_data(mol, atom_poses, dir_type='HT')
 
 

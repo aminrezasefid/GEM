@@ -175,8 +175,9 @@ def main(args):
     ### load data    
     if args.task == 'data':
         print('Preprocessing data...')
+        pickfile="cached_data\esol\esol.pkl"
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
-        transform_fn = DownstreamTransformFn()
+        transform_fn = DownstreamTransformFn(pos_file=pickfile)
         dataset.transform(transform_fn, num_workers=args.num_workers)
         dataset.save_data(args.cached_data_path)
         return

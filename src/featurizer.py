@@ -20,13 +20,16 @@ downstream featurizer
 import numpy as np
 import pgl
 from rdkit.Chem import AllChem
-
+import pickle
 from pahelix.utils.compound_tools import mol_to_geognn_graph_data_MMFF3d
 
 
 class DownstreamTransformFn(object):
     """Gen features for downstream model"""
-    def __init__(self, is_inference=False):
+    def __init__(self, is_inference=False,pos_file=None):
+        if pos_file is not None:
+            f=open(pos_file,"rb")
+            self.pos_dic=pickle.load(f)
         self.is_inference = is_inference
 
     def __call__(self, raw_data):
@@ -43,7 +46,7 @@ class DownstreamTransformFn(object):
         mol = AllChem.MolFromSmiles(smiles)
         if mol is None:
             return None
-        data = mol_to_geognn_graph_data_MMFF3d(mol)
+        data = mol_to_geognn_graph_data_MMFF3d(mol,smiles,self.pos_dic)
         if not self.is_inference:
             data['label'] = raw_data['label'].reshape([-1])
         data['smiles'] = smiles

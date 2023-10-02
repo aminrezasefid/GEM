@@ -161,8 +161,10 @@ def main(args):
     
     if args.task == 'data':
         print('Preprocessing data...')
+        pickfile="cached_data\esol\esol.pkl"
+        print(pickfile)
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
-        dataset.transform(DownstreamTransformFn(), num_workers=args.num_workers)
+        dataset.transform(DownstreamTransformFn(pos_file=pickfile), num_workers=args.num_workers)
         dataset.save_data(args.cached_data_path)
         return
     else:
