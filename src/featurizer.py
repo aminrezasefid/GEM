@@ -27,6 +27,7 @@ from pahelix.utils.compound_tools import mol_to_geognn_graph_data_MMFF3d
 class DownstreamTransformFn(object):
     """Gen features for downstream model"""
     def __init__(self, is_inference=False,pos_file=None):
+        self.pos_dic=None
         if pos_file is not None:
             f=open(pos_file,"rb")
             self.pos_dic=pickle.load(f)
