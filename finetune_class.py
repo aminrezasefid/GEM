@@ -161,8 +161,8 @@ def main(args):
     
     if args.task == 'data':
         print('Preprocessing data...')
-        pickfile="cached_data/lipo/lipo.pkl"
-        pickfile=None
+        pickfile="cached_data/bbbp/bbbp.pkl"
+        #pickfile=None
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
         transform_fn = DownstreamTransformFn(pos_file=pickfile,use_mmff=args.use_mmff)
         dataset.transform(transform_fn, num_workers=args.num_workers)
@@ -178,8 +178,7 @@ def main(args):
             dataset = InMemoryDataset(npz_data_path=args.cached_data_path)
 
     splitter = create_splitter(args.split_type)
-    train_dataset, valid_dataset, test_dataset = splitter.split(
-            dataset, "splits.npz")
+    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.8,0.1,0.1)
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train pos/neg ratio %s/%s' % get_pos_neg_ratio(train_dataset))
@@ -228,7 +227,7 @@ def main(args):
         'exp_id': args.exp_id,
     }
     offset = 20
-    best_epoch_id = np.argmax(list_val_auc[offset:]) + offset
+    best_epoch_id = np.argmax(list_val_auc)
     for metric, value in [
             ('test_auc', list_test_auc[best_epoch_id]),
             ('max_valid_auc', np.max(list_val_auc)),

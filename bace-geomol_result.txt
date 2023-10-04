@@ -1,0 +1,4192 @@
+[GeoGNNModel] embed_dim:32
+[GeoGNNModel] dropout_rate:0.1
+[GeoGNNModel] layer_num:8
+[GeoGNNModel] readout:mean
+[GeoGNNModel] atom_names:['atomic_num', 'formal_charge', 'degree', 'chiral_tag', 'total_numHs', 'is_aromatic', 'hybridization']
+[GeoGNNModel] bond_names:['bond_dir', 'bond_type', 'is_in_ring']
+[GeoGNNModel] bond_float_names:['bond_length']
+[GeoGNNModel] bond_angle_float_names:['bond_angle']
+Tensor(shape=[1], dtype=int64, place=Place(gpu:0), stop_gradient=True,
+       [106881])
+Total param num: 170
+Encoder param num: 164
+Head param num: 6
+0 compound_encoder.init_atom_embedding.embed_list.0.weight embedding_0.w_0
+1 compound_encoder.init_atom_embedding.embed_list.1.weight embedding_1.w_0
+2 compound_encoder.init_atom_embedding.embed_list.2.weight embedding_2.w_0
+3 compound_encoder.init_atom_embedding.embed_list.3.weight embedding_3.w_0
+4 compound_encoder.init_atom_embedding.embed_list.4.weight embedding_4.w_0
+5 compound_encoder.init_atom_embedding.embed_list.5.weight embedding_5.w_0
+6 compound_encoder.init_atom_embedding.embed_list.6.weight embedding_6.w_0
+7 compound_encoder.init_bond_embedding.embed_list.0.weight embedding_7.w_0
+8 compound_encoder.init_bond_embedding.embed_list.1.weight embedding_8.w_0
+9 compound_encoder.init_bond_embedding.embed_list.2.weight embedding_9.w_0
+10 compound_encoder.init_bond_float_rbf.linear_list.0.weight linear_0.w_0
+11 compound_encoder.init_bond_float_rbf.linear_list.0.bias linear_0.b_0
+12 compound_encoder.bond_embedding_list.0.embed_list.0.weight embedding_10.w_0
+13 compound_encoder.bond_embedding_list.0.embed_list.1.weight embedding_11.w_0
+14 compound_encoder.bond_embedding_list.0.embed_list.2.weight embedding_12.w_0
+15 compound_encoder.bond_embedding_list.1.embed_list.0.weight embedding_13.w_0
+16 compound_encoder.bond_embedding_list.1.embed_list.1.weight embedding_14.w_0
+17 compound_encoder.bond_embedding_list.1.embed_list.2.weight embedding_15.w_0
+18 compound_encoder.bond_embedding_list.2.embed_list.0.weight embedding_16.w_0
+19 compound_encoder.bond_embedding_list.2.embed_list.1.weight embedding_17.w_0
+20 compound_encoder.bond_embedding_list.2.embed_list.2.weight embedding_18.w_0
+21 compound_encoder.bond_embedding_list.3.embed_list.0.weight embedding_19.w_0
+22 compound_encoder.bond_embedding_list.3.embed_list.1.weight embedding_20.w_0
+23 compound_encoder.bond_embedding_list.3.embed_list.2.weight embedding_21.w_0
+24 compound_encoder.bond_embedding_list.4.embed_list.0.weight embedding_22.w_0
+25 compound_encoder.bond_embedding_list.4.embed_list.1.weight embedding_23.w_0
+26 compound_encoder.bond_embedding_list.4.embed_list.2.weight embedding_24.w_0
+27 compound_encoder.bond_embedding_list.5.embed_list.0.weight embedding_25.w_0
+28 compound_encoder.bond_embedding_list.5.embed_list.1.weight embedding_26.w_0
+29 compound_encoder.bond_embedding_list.5.embed_list.2.weight embedding_27.w_0
+30 compound_encoder.bond_embedding_list.6.embed_list.0.weight embedding_28.w_0
+31 compound_encoder.bond_embedding_list.6.embed_list.1.weight embedding_29.w_0
+32 compound_encoder.bond_embedding_list.6.embed_list.2.weight embedding_30.w_0
+33 compound_encoder.bond_embedding_list.7.embed_list.0.weight embedding_31.w_0
+34 compound_encoder.bond_embedding_list.7.embed_list.1.weight embedding_32.w_0
+35 compound_encoder.bond_embedding_list.7.embed_list.2.weight embedding_33.w_0
+36 compound_encoder.bond_float_rbf_list.0.linear_list.0.weight linear_1.w_0
+37 compound_encoder.bond_float_rbf_list.0.linear_list.0.bias linear_1.b_0
+38 compound_encoder.bond_float_rbf_list.1.linear_list.0.weight linear_7.w_0
+39 compound_encoder.bond_float_rbf_list.1.linear_list.0.bias linear_7.b_0
+40 compound_encoder.bond_float_rbf_list.2.linear_list.0.weight linear_13.w_0
+41 compound_encoder.bond_float_rbf_list.2.linear_list.0.bias linear_13.b_0
+42 compound_encoder.bond_float_rbf_list.3.linear_list.0.weight linear_19.w_0
+43 compound_encoder.bond_float_rbf_list.3.linear_list.0.bias linear_19.b_0
+44 compound_encoder.bond_float_rbf_list.4.linear_list.0.weight linear_25.w_0
+45 compound_encoder.bond_float_rbf_list.4.linear_list.0.bias linear_25.b_0
+46 compound_encoder.bond_float_rbf_list.5.linear_list.0.weight linear_31.w_0
+47 compound_encoder.bond_float_rbf_list.5.linear_list.0.bias linear_31.b_0
+48 compound_encoder.bond_float_rbf_list.6.linear_list.0.weight linear_37.w_0
+49 compound_encoder.bond_float_rbf_list.6.linear_list.0.bias linear_37.b_0
+50 compound_encoder.bond_float_rbf_list.7.linear_list.0.weight linear_43.w_0
+51 compound_encoder.bond_float_rbf_list.7.linear_list.0.bias linear_43.b_0
+52 compound_encoder.bond_angle_float_rbf_list.0.linear_list.0.weight linear_2.w_0
+53 compound_encoder.bond_angle_float_rbf_list.0.linear_list.0.bias linear_2.b_0
+54 compound_encoder.bond_angle_float_rbf_list.1.linear_list.0.weight linear_8.w_0
+55 compound_encoder.bond_angle_float_rbf_list.1.linear_list.0.bias linear_8.b_0
+56 compound_encoder.bond_angle_float_rbf_list.2.linear_list.0.weight linear_14.w_0
+57 compound_encoder.bond_angle_float_rbf_list.2.linear_list.0.bias linear_14.b_0
+58 compound_encoder.bond_angle_float_rbf_list.3.linear_list.0.weight linear_20.w_0
+59 compound_encoder.bond_angle_float_rbf_list.3.linear_list.0.bias linear_20.b_0
+60 compound_encoder.bond_angle_float_rbf_list.4.linear_list.0.weight linear_26.w_0
+61 compound_encoder.bond_angle_float_rbf_list.4.linear_list.0.bias linear_26.b_0
+62 compound_encoder.bond_angle_float_rbf_list.5.linear_list.0.weight linear_32.w_0
+63 compound_encoder.bond_angle_float_rbf_list.5.linear_list.0.bias linear_32.b_0
+64 compound_encoder.bond_angle_float_rbf_list.6.linear_list.0.weight linear_38.w_0
+65 compound_encoder.bond_angle_float_rbf_list.6.linear_list.0.bias linear_38.b_0
+66 compound_encoder.bond_angle_float_rbf_list.7.linear_list.0.weight linear_44.w_0
+67 compound_encoder.bond_angle_float_rbf_list.7.linear_list.0.bias linear_44.b_0
+68 compound_encoder.atom_bond_block_list.0.gnn.mlp.0.weight linear_3.w_0
+69 compound_encoder.atom_bond_block_list.0.gnn.mlp.0.bias linear_3.b_0
+70 compound_encoder.atom_bond_block_list.0.gnn.mlp.2.weight linear_4.w_0
+71 compound_encoder.atom_bond_block_list.0.gnn.mlp.2.bias linear_4.b_0
+72 compound_encoder.atom_bond_block_list.0.norm.weight layer_norm_0.w_0
+73 compound_encoder.atom_bond_block_list.0.norm.bias layer_norm_0.b_0
+74 compound_encoder.atom_bond_block_list.1.gnn.mlp.0.weight linear_9.w_0
+75 compound_encoder.atom_bond_block_list.1.gnn.mlp.0.bias linear_9.b_0
+76 compound_encoder.atom_bond_block_list.1.gnn.mlp.2.weight linear_10.w_0
+77 compound_encoder.atom_bond_block_list.1.gnn.mlp.2.bias linear_10.b_0
+78 compound_encoder.atom_bond_block_list.1.norm.weight layer_norm_2.w_0
+79 compound_encoder.atom_bond_block_list.1.norm.bias layer_norm_2.b_0
+80 compound_encoder.atom_bond_block_list.2.gnn.mlp.0.weight linear_15.w_0
+81 compound_encoder.atom_bond_block_list.2.gnn.mlp.0.bias linear_15.b_0
+82 compound_encoder.atom_bond_block_list.2.gnn.mlp.2.weight linear_16.w_0
+83 compound_encoder.atom_bond_block_list.2.gnn.mlp.2.bias linear_16.b_0
+84 compound_encoder.atom_bond_block_list.2.norm.weight layer_norm_4.w_0
+85 compound_encoder.atom_bond_block_list.2.norm.bias layer_norm_4.b_0
+86 compound_encoder.atom_bond_block_list.3.gnn.mlp.0.weight linear_21.w_0
+87 compound_encoder.atom_bond_block_list.3.gnn.mlp.0.bias linear_21.b_0
+88 compound_encoder.atom_bond_block_list.3.gnn.mlp.2.weight linear_22.w_0
+89 compound_encoder.atom_bond_block_list.3.gnn.mlp.2.bias linear_22.b_0
+90 compound_encoder.atom_bond_block_list.3.norm.weight layer_norm_6.w_0
+91 compound_encoder.atom_bond_block_list.3.norm.bias layer_norm_6.b_0
+92 compound_encoder.atom_bond_block_list.4.gnn.mlp.0.weight linear_27.w_0
+93 compound_encoder.atom_bond_block_list.4.gnn.mlp.0.bias linear_27.b_0
+94 compound_encoder.atom_bond_block_list.4.gnn.mlp.2.weight linear_28.w_0
+95 compound_encoder.atom_bond_block_list.4.gnn.mlp.2.bias linear_28.b_0
+96 compound_encoder.atom_bond_block_list.4.norm.weight layer_norm_8.w_0
+97 compound_encoder.atom_bond_block_list.4.norm.bias layer_norm_8.b_0
+98 compound_encoder.atom_bond_block_list.5.gnn.mlp.0.weight linear_33.w_0
+99 compound_encoder.atom_bond_block_list.5.gnn.mlp.0.bias linear_33.b_0
+100 compound_encoder.atom_bond_block_list.5.gnn.mlp.2.weight linear_34.w_0
+101 compound_encoder.atom_bond_block_list.5.gnn.mlp.2.bias linear_34.b_0
+102 compound_encoder.atom_bond_block_list.5.norm.weight layer_norm_10.w_0
+103 compound_encoder.atom_bond_block_list.5.norm.bias layer_norm_10.b_0
+104 compound_encoder.atom_bond_block_list.6.gnn.mlp.0.weight linear_39.w_0
+105 compound_encoder.atom_bond_block_list.6.gnn.mlp.0.bias linear_39.b_0
+106 compound_encoder.atom_bond_block_list.6.gnn.mlp.2.weight linear_40.w_0
+107 compound_encoder.atom_bond_block_list.6.gnn.mlp.2.bias linear_40.b_0
+108 compound_encoder.atom_bond_block_list.6.norm.weight layer_norm_12.w_0
+109 compound_encoder.atom_bond_block_list.6.norm.bias layer_norm_12.b_0
+110 compound_encoder.atom_bond_block_list.7.gnn.mlp.0.weight linear_45.w_0
+111 compound_encoder.atom_bond_block_list.7.gnn.mlp.0.bias linear_45.b_0
+112 compound_encoder.atom_bond_block_list.7.gnn.mlp.2.weight linear_46.w_0
+113 compound_encoder.atom_bond_block_list.7.gnn.mlp.2.bias linear_46.b_0
+114 compound_encoder.atom_bond_block_list.7.norm.weight layer_norm_14.w_0
+115 compound_encoder.atom_bond_block_list.7.norm.bias layer_norm_14.b_0
+116 compound_encoder.bond_angle_block_list.0.gnn.mlp.0.weight linear_5.w_0
+117 compound_encoder.bond_angle_block_list.0.gnn.mlp.0.bias linear_5.b_0
+118 compound_encoder.bond_angle_block_list.0.gnn.mlp.2.weight linear_6.w_0
+119 compound_encoder.bond_angle_block_list.0.gnn.mlp.2.bias linear_6.b_0
+120 compound_encoder.bond_angle_block_list.0.norm.weight layer_norm_1.w_0
+121 compound_encoder.bond_angle_block_list.0.norm.bias layer_norm_1.b_0
+122 compound_encoder.bond_angle_block_list.1.gnn.mlp.0.weight linear_11.w_0
+123 compound_encoder.bond_angle_block_list.1.gnn.mlp.0.bias linear_11.b_0
+124 compound_encoder.bond_angle_block_list.1.gnn.mlp.2.weight linear_12.w_0
+125 compound_encoder.bond_angle_block_list.1.gnn.mlp.2.bias linear_12.b_0
+126 compound_encoder.bond_angle_block_list.1.norm.weight layer_norm_3.w_0
+127 compound_encoder.bond_angle_block_list.1.norm.bias layer_norm_3.b_0
+128 compound_encoder.bond_angle_block_list.2.gnn.mlp.0.weight linear_17.w_0
+129 compound_encoder.bond_angle_block_list.2.gnn.mlp.0.bias linear_17.b_0
+130 compound_encoder.bond_angle_block_list.2.gnn.mlp.2.weight linear_18.w_0
+131 compound_encoder.bond_angle_block_list.2.gnn.mlp.2.bias linear_18.b_0
+132 compound_encoder.bond_angle_block_list.2.norm.weight layer_norm_5.w_0
+133 compound_encoder.bond_angle_block_list.2.norm.bias layer_norm_5.b_0
+134 compound_encoder.bond_angle_block_list.3.gnn.mlp.0.weight linear_23.w_0
+135 compound_encoder.bond_angle_block_list.3.gnn.mlp.0.bias linear_23.b_0
+136 compound_encoder.bond_angle_block_list.3.gnn.mlp.2.weight linear_24.w_0
+137 compound_encoder.bond_angle_block_list.3.gnn.mlp.2.bias linear_24.b_0
+138 compound_encoder.bond_angle_block_list.3.norm.weight layer_norm_7.w_0
+139 compound_encoder.bond_angle_block_list.3.norm.bias layer_norm_7.b_0
+140 compound_encoder.bond_angle_block_list.4.gnn.mlp.0.weight linear_29.w_0
+141 compound_encoder.bond_angle_block_list.4.gnn.mlp.0.bias linear_29.b_0
+142 compound_encoder.bond_angle_block_list.4.gnn.mlp.2.weight linear_30.w_0
+143 compound_encoder.bond_angle_block_list.4.gnn.mlp.2.bias linear_30.b_0
+144 compound_encoder.bond_angle_block_list.4.norm.weight layer_norm_9.w_0
+145 compound_encoder.bond_angle_block_list.4.norm.bias layer_norm_9.b_0
+146 compound_encoder.bond_angle_block_list.5.gnn.mlp.0.weight linear_35.w_0
+147 compound_encoder.bond_angle_block_list.5.gnn.mlp.0.bias linear_35.b_0
+148 compound_encoder.bond_angle_block_list.5.gnn.mlp.2.weight linear_36.w_0
+149 compound_encoder.bond_angle_block_list.5.gnn.mlp.2.bias linear_36.b_0
+150 compound_encoder.bond_angle_block_list.5.norm.weight layer_norm_11.w_0
+151 compound_encoder.bond_angle_block_list.5.norm.bias layer_norm_11.b_0
+152 compound_encoder.bond_angle_block_list.6.gnn.mlp.0.weight linear_41.w_0
+153 compound_encoder.bond_angle_block_list.6.gnn.mlp.0.bias linear_41.b_0
+154 compound_encoder.bond_angle_block_list.6.gnn.mlp.2.weight linear_42.w_0
+155 compound_encoder.bond_angle_block_list.6.gnn.mlp.2.bias linear_42.b_0
+156 compound_encoder.bond_angle_block_list.6.norm.weight layer_norm_13.w_0
+157 compound_encoder.bond_angle_block_list.6.norm.bias layer_norm_13.b_0
+158 compound_encoder.bond_angle_block_list.7.gnn.mlp.0.weight linear_47.w_0
+159 compound_encoder.bond_angle_block_list.7.gnn.mlp.0.bias linear_47.b_0
+160 compound_encoder.bond_angle_block_list.7.gnn.mlp.2.weight linear_48.w_0
+161 compound_encoder.bond_angle_block_list.7.gnn.mlp.2.bias linear_48.b_0
+162 compound_encoder.bond_angle_block_list.7.norm.weight layer_norm_15.w_0
+163 compound_encoder.bond_angle_block_list.7.norm.bias layer_norm_15.b_0
+164 norm.weight layer_norm_16.w_0
+165 norm.bias layer_norm_16.b_0
+166 mlp.mlp.0.weight linear_49.w_0
+167 mlp.mlp.0.bias linear_49.b_0
+168 mlp.mlp.3.weight linear_50.w_0
+169 mlp.mlp.3.bias linear_50.b_0
+Load state_dict from ./pretrain_models-chemrl_gem/regr.pdparams
+Read preprocessing data...
+Train/Valid/Test num: 1210/151/152
+Train pos/neg ratio 0.39669421487603307/0.6033057851239669
+Valid pos/neg ratio 0.8609271523178808/0.1390728476821192
+Test pos/neg ratio 0.5328947368421053/0.46710526315789475
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:0 train/loss:0.67512256
+epoch:0 val/auc:0.6410256410256411
+epoch:0 test/auc:0.6958789775691184
+epoch:0 test/auc_by_eval:0.6958789775691184
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:1 train/loss:0.5866129
+epoch:1 val/auc:0.6461538461538462
+epoch:1 test/auc:0.7110067814293166
+epoch:1 test/auc_by_eval:0.7110067814293166
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:2 train/loss:0.5606191
+epoch:2 val/auc:0.6706959706959708
+epoch:2 test/auc:0.7478699356633629
+epoch:2 test/auc_by_eval:0.7478699356633629
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:3 train/loss:0.5032531
+epoch:3 val/auc:0.6813186813186813
+epoch:3 test/auc:0.7749956529299253
+epoch:3 test/auc_by_eval:0.7749956529299253
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:4 train/loss:0.47437558
+epoch:4 val/auc:0.6787545787545788
+epoch:4 test/auc:0.7866458007303078
+epoch:4 test/auc_by_eval:0.7749956529299253
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:5 train/loss:0.45260212
+epoch:5 val/auc:0.7047619047619047
+epoch:5 test/auc:0.7936011128499391
+epoch:5 test/auc_by_eval:0.7936011128499391
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:6 train/loss:0.41827548
+epoch:6 val/auc:0.7051282051282052
+epoch:6 test/auc:0.8028169014084507
+epoch:6 test/auc_by_eval:0.8028169014084507
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:7 train/loss:0.41603523
+epoch:7 val/auc:0.712087912087912
+epoch:7 test/auc:0.8163797600417319
+epoch:7 test/auc_by_eval:0.8163797600417319
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:8 train/loss:0.38795927
+epoch:8 val/auc:0.7380952380952381
+epoch:8 test/auc:0.8165536428447226
+epoch:8 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:9 train/loss:0.38295344
+epoch:9 val/auc:0.7311355311355311
+epoch:9 test/auc:0.8083811511041559
+epoch:9 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:10 train/loss:0.37006462
+epoch:10 val/auc:0.7274725274725276
+epoch:10 test/auc:0.808207268301165
+epoch:10 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:11 train/loss:0.34773934
+epoch:11 val/auc:0.7347985347985349
+epoch:11 test/auc:0.8139454007998609
+epoch:11 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:12 train/loss:0.36833626
+epoch:12 val/auc:0.7380952380952381
+epoch:12 test/auc:0.8156842288297688
+epoch:12 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:13 train/loss:0.35315767
+epoch:13 val/auc:0.7278388278388278
+epoch:13 test/auc:0.8047296122413493
+epoch:13 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:14 train/loss:0.33454734
+epoch:14 val/auc:0.736996336996337
+epoch:14 test/auc:0.8189880020865936
+epoch:14 test/auc_by_eval:0.8165536428447226
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:15 train/loss:0.32772085
+epoch:15 val/auc:0.7388278388278389
+epoch:15 test/auc:0.8052512606503216
+epoch:15 test/auc_by_eval:0.8052512606503216
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:16 train/loss:0.31507507
+epoch:16 val/auc:0.7542124542124542
+epoch:16 test/auc:0.8174230568596765
+epoch:16 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:17 train/loss:0.30832094
+epoch:17 val/auc:0.7296703296703296
+epoch:17 test/auc:0.8090766823161188
+epoch:17 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:18 train/loss:0.33555415
+epoch:18 val/auc:0.7542124542124542
+epoch:18 test/auc:0.8184663536776212
+epoch:18 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:19 train/loss:0.33449513
+epoch:19 val/auc:0.7432234432234432
+epoch:19 test/auc:0.8297687358720222
+epoch:19 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:20 train/loss:0.33598483
+epoch:20 val/auc:0.7333333333333333
+epoch:20 test/auc:0.812206572769953
+epoch:20 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:21 train/loss:0.33032805
+epoch:21 val/auc:0.7355311355311355
+epoch:21 test/auc:0.815510346026778
+epoch:21 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:22 train/loss:0.30389825
+epoch:22 val/auc:0.7388278388278389
+epoch:22 test/auc:0.8174230568596764
+epoch:22 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:23 train/loss:0.28420806
+epoch:23 val/auc:0.7333333333333334
+epoch:23 test/auc:0.8242044861763171
+epoch:23 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:24 train/loss:0.2726145
+epoch:24 val/auc:0.7311355311355312
+epoch:24 test/auc:0.8141192836028517
+epoch:24 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:25 train/loss:0.25113642
+epoch:25 val/auc:0.7168498168498169
+epoch:25 test/auc:0.7998608937576074
+epoch:25 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:26 train/loss:0.2621347
+epoch:26 val/auc:0.6897435897435897
+epoch:26 test/auc:0.7833420274734828
+epoch:26 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:27 train/loss:0.26707417
+epoch:27 val/auc:0.7377289377289377
+epoch:27 test/auc:0.8189880020865935
+epoch:27 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:28 train/loss:0.25762025
+epoch:28 val/auc:0.7315018315018316
+epoch:28 test/auc:0.8153364632237872
+epoch:28 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:29 train/loss:0.2495203
+epoch:29 val/auc:0.7278388278388279
+epoch:29 test/auc:0.8083811511041558
+epoch:29 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:30 train/loss:0.24943787
+epoch:30 val/auc:0.7095238095238096
+epoch:30 test/auc:0.8082072683011651
+epoch:30 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:31 train/loss:0.2440503
+epoch:31 val/auc:0.7293040293040293
+epoch:31 test/auc:0.8071639714832203
+epoch:31 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:32 train/loss:0.2404275
+epoch:32 val/auc:0.7120879120879121
+epoch:32 test/auc:0.8036863154234046
+epoch:32 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:33 train/loss:0.2245134
+epoch:33 val/auc:0.73003663003663
+epoch:33 test/auc:0.8055990262563033
+epoch:33 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:34 train/loss:0.2311836
+epoch:34 val/auc:0.6747252747252748
+epoch:34 test/auc:0.8010780733785429
+epoch:34 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:35 train/loss:0.24359077
+epoch:35 val/auc:0.7271062271062272
+epoch:35 test/auc:0.8139454007998609
+epoch:35 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:36 train/loss:0.26643082
+epoch:36 val/auc:0.732967032967033
+epoch:36 test/auc:0.7974265345157364
+epoch:36 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:37 train/loss:0.25717053
+epoch:37 val/auc:0.7318681318681318
+epoch:37 test/auc:0.8062945574682664
+epoch:37 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:38 train/loss:0.21353106
+epoch:38 val/auc:0.7124542124542126
+epoch:38 test/auc:0.8036863154234047
+epoch:38 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:39 train/loss:0.21715179
+epoch:39 val/auc:0.7197802197802198
+epoch:39 test/auc:0.8144670492088332
+epoch:39 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:40 train/loss:0.21134585
+epoch:40 val/auc:0.6853479853479854
+epoch:40 test/auc:0.8029907842114414
+epoch:40 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:41 train/loss:0.20399435
+epoch:41 val/auc:0.7175824175824176
+epoch:41 test/auc:0.8127282211789254
+epoch:41 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:42 train/loss:0.20921916
+epoch:42 val/auc:0.7117216117216117
+epoch:42 test/auc:0.8111632759520083
+epoch:42 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:43 train/loss:0.19366342
+epoch:43 val/auc:0.7336996336996338
+epoch:43 test/auc:0.7962093548948008
+epoch:43 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:44 train/loss:0.20663726
+epoch:44 val/auc:0.7333333333333333
+epoch:44 test/auc:0.8116849243609807
+epoch:44 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:45 train/loss:0.22953361
+epoch:45 val/auc:0.710989010989011
+epoch:45 test/auc:0.8089027995131283
+epoch:45 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:46 train/loss:0.18392254
+epoch:46 val/auc:0.7282051282051283
+epoch:46 test/auc:0.8092505651191098
+epoch:46 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:47 train/loss:0.20614474
+epoch:47 val/auc:0.702930402930403
+epoch:47 test/auc:0.8104677447400451
+epoch:47 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:48 train/loss:0.18743291
+epoch:48 val/auc:0.7095238095238094
+epoch:48 test/auc:0.7974265345157364
+epoch:48 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:49 train/loss:0.17479703
+epoch:49 val/auc:0.7098901098901099
+epoch:49 test/auc:0.80264301860546
+epoch:49 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:50 train/loss:0.22580855
+epoch:50 val/auc:0.7234432234432235
+epoch:50 test/auc:0.8106416275430359
+epoch:50 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:51 train/loss:0.19648208
+epoch:51 val/auc:0.7120879120879121
+epoch:51 test/auc:0.8047296122413493
+epoch:51 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:52 train/loss:0.18188258
+epoch:52 val/auc:0.704029304029304
+epoch:52 test/auc:0.7991653625456442
+epoch:52 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:53 train/loss:0.16789798
+epoch:53 val/auc:0.7025641025641026
+epoch:53 test/auc:0.7831681446704921
+epoch:53 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:54 train/loss:0.16781212
+epoch:54 val/auc:0.7421245421245422
+epoch:54 test/auc:0.7795166058076857
+epoch:54 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:55 train/loss:0.15713514
+epoch:55 val/auc:0.7131868131868132
+epoch:55 test/auc:0.7890801599721787
+epoch:55 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:56 train/loss:0.17678745
+epoch:56 val/auc:0.6912087912087913
+epoch:56 test/auc:0.7866458007303078
+epoch:56 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:57 train/loss:0.18548225
+epoch:57 val/auc:0.7285714285714285
+epoch:57 test/auc:0.8015997217875154
+epoch:57 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:58 train/loss:0.16630599
+epoch:58 val/auc:0.7304029304029304
+epoch:58 test/auc:0.8040340810293861
+epoch:58 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:59 train/loss:0.16245441
+epoch:59 val/auc:0.7131868131868132
+epoch:59 test/auc:0.7981220657276996
+epoch:59 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:60 train/loss:0.13871378
+epoch:60 val/auc:0.7142857142857143
+epoch:60 test/auc:0.7869935663362894
+epoch:60 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:61 train/loss:0.19565909
+epoch:61 val/auc:0.7076923076923077
+epoch:61 test/auc:0.7984698313336812
+epoch:61 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:62 train/loss:0.1698643
+epoch:62 val/auc:0.7051282051282052
+epoch:62 test/auc:0.7955138236828377
+epoch:62 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:63 train/loss:0.18489616
+epoch:63 val/auc:0.7065934065934066
+epoch:63 test/auc:0.7915145192140498
+epoch:63 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:64 train/loss:0.1842278
+epoch:64 val/auc:0.693040293040293
+epoch:64 test/auc:0.7908189880020866
+epoch:64 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:65 train/loss:0.1928836
+epoch:65 val/auc:0.720879120879121
+epoch:65 test/auc:0.7916884020170404
+epoch:65 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:66 train/loss:0.15532278
+epoch:66 val/auc:0.6886446886446885
+epoch:66 test/auc:0.7911667536080681
+epoch:66 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:67 train/loss:0.14371504
+epoch:67 val/auc:0.7267399267399268
+epoch:67 test/auc:0.8089027995131282
+epoch:67 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:68 train/loss:0.13393475
+epoch:68 val/auc:0.7014652014652015
+epoch:68 test/auc:0.8036863154234046
+epoch:68 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:69 train/loss:0.1323831
+epoch:69 val/auc:0.726007326007326
+epoch:69 test/auc:0.7989914797426535
+epoch:69 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:70 train/loss:0.13434932
+epoch:70 val/auc:0.719047619047619
+epoch:70 test/auc:0.7946444096678839
+epoch:70 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:71 train/loss:0.12539522
+epoch:71 val/auc:0.7252747252747254
+epoch:71 test/auc:0.7909928708050774
+epoch:71 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:72 train/loss:0.11434363
+epoch:72 val/auc:0.7208791208791209
+epoch:72 test/auc:0.7821248478525473
+epoch:72 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:73 train/loss:0.13145047
+epoch:73 val/auc:0.7241758241758243
+epoch:73 test/auc:0.8142931664058425
+epoch:73 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:74 train/loss:0.14131945
+epoch:74 val/auc:0.7054945054945054
+epoch:74 test/auc:0.7956877064858284
+epoch:74 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:75 train/loss:0.15690655
+epoch:75 val/auc:0.726007326007326
+epoch:75 test/auc:0.8123804555729438
+epoch:75 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:76 train/loss:0.15581757
+epoch:76 val/auc:0.6864468864468865
+epoch:76 test/auc:0.7810815510346028
+epoch:76 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:77 train/loss:0.16401114
+epoch:77 val/auc:0.7263736263736263
+epoch:77 test/auc:0.8069900886802295
+epoch:77 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:78 train/loss:0.15455657
+epoch:78 val/auc:0.7197802197802198
+epoch:78 test/auc:0.8089027995131282
+epoch:78 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:79 train/loss:0.18660717
+epoch:79 val/auc:0.7098901098901099
+epoch:79 test/auc:0.7962093548948009
+epoch:79 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:80 train/loss:0.17722596
+epoch:80 val/auc:0.7384615384615385
+epoch:80 test/auc:0.7942966440619023
+epoch:80 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:81 train/loss:0.15517566
+epoch:81 val/auc:0.7040293040293041
+epoch:81 test/auc:0.8182924708746305
+epoch:81 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:82 train/loss:0.12479288
+epoch:82 val/auc:0.7124542124542125
+epoch:82 test/auc:0.8172491740566857
+epoch:82 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:83 train/loss:0.11640505
+epoch:83 val/auc:0.6970695970695971
+epoch:83 test/auc:0.8118588071639715
+epoch:83 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:84 train/loss:0.13129944
+epoch:84 val/auc:0.7208791208791209
+epoch:84 test/auc:0.8102938619370543
+epoch:84 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:85 train/loss:0.12491878
+epoch:85 val/auc:0.726007326007326
+epoch:85 test/auc:0.8092505651191098
+epoch:85 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:86 train/loss:0.1092751
+epoch:86 val/auc:0.7201465201465203
+epoch:86 test/auc:0.8158581116327595
+epoch:86 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:87 train/loss:0.1018002
+epoch:87 val/auc:0.7384615384615385
+epoch:87 test/auc:0.8075117370892019
+epoch:87 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:88 train/loss:0.106633276
+epoch:88 val/auc:0.7395604395604396
+epoch:88 test/auc:0.809076682316119
+epoch:88 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:89 train/loss:0.104539715
+epoch:89 val/auc:0.7058608058608059
+epoch:89 test/auc:0.7946444096678839
+epoch:89 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:90 train/loss:0.108608365
+epoch:90 val/auc:0.720879120879121
+epoch:90 test/auc:0.8120326899669622
+epoch:90 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:91 train/loss:0.10316784
+epoch:91 val/auc:0.6846153846153845
+epoch:91 test/auc:0.7866458007303077
+epoch:91 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:92 train/loss:0.101628274
+epoch:92 val/auc:0.7223443223443224
+epoch:92 test/auc:0.7936011128499391
+epoch:92 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:93 train/loss:0.09998683
+epoch:93 val/auc:0.7131868131868132
+epoch:93 test/auc:0.789601808381151
+epoch:93 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:94 train/loss:0.13474359
+epoch:94 val/auc:0.7282051282051283
+epoch:94 test/auc:0.8116849243609806
+epoch:94 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:95 train/loss:0.156563
+epoch:95 val/auc:0.7113553113553114
+epoch:95 test/auc:0.7949921752738653
+epoch:95 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:96 train/loss:0.19031887
+epoch:96 val/auc:0.7410256410256411
+epoch:96 test/auc:0.7873413319422709
+epoch:96 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:97 train/loss:0.12434118
+epoch:97 val/auc:0.7487179487179487
+epoch:97 test/auc:0.7949921752738655
+epoch:97 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:98 train/loss:0.10938262
+epoch:98 val/auc:0.7051282051282052
+epoch:98 test/auc:0.8146409320118241
+epoch:98 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:99 train/loss:0.1079312
+epoch:99 val/auc:0.7227106227106227
+epoch:99 test/auc:0.7953399408798469
+epoch:99 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:100 train/loss:0.110591345
+epoch:100 val/auc:0.7128205128205128
+epoch:100 test/auc:0.7970787689097548
+epoch:100 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:101 train/loss:0.10688829
+epoch:101 val/auc:0.7252747252747253
+epoch:101 test/auc:0.7955138236828377
+epoch:101 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:102 train/loss:0.10829121
+epoch:102 val/auc:0.7117216117216116
+epoch:102 test/auc:0.7970787689097548
+epoch:102 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:103 train/loss:0.120272756
+epoch:103 val/auc:0.7021978021978023
+epoch:103 test/auc:0.8092505651191096
+epoch:103 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:104 train/loss:0.12436858
+epoch:104 val/auc:0.6934065934065934
+epoch:104 test/auc:0.781603199443575
+epoch:104 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:105 train/loss:0.1159561
+epoch:105 val/auc:0.7391941391941391
+epoch:105 test/auc:0.7963832376977916
+epoch:105 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:106 train/loss:0.10118398
+epoch:106 val/auc:0.7113553113553114
+epoch:106 test/auc:0.7736045905059988
+epoch:106 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:107 train/loss:0.09842338
+epoch:107 val/auc:0.7208791208791209
+epoch:107 test/auc:0.7878629803512434
+epoch:107 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:108 train/loss:0.099342726
+epoch:108 val/auc:0.7124542124542125
+epoch:108 test/auc:0.8049034950443401
+epoch:108 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:109 train/loss:0.09772344
+epoch:109 val/auc:0.712820512820513
+epoch:109 test/auc:0.7962093548948008
+epoch:109 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:110 train/loss:0.08636144
+epoch:110 val/auc:0.7095238095238096
+epoch:110 test/auc:0.7856025039123631
+epoch:110 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:111 train/loss:0.08419054
+epoch:111 val/auc:0.7168498168498169
+epoch:111 test/auc:0.7892540427751694
+epoch:111 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:112 train/loss:0.08166773
+epoch:112 val/auc:0.7091575091575092
+epoch:112 test/auc:0.7942966440619023
+epoch:112 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:113 train/loss:0.08229368
+epoch:113 val/auc:0.7084249084249085
+epoch:113 test/auc:0.7932533472439576
+epoch:113 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:114 train/loss:0.07015762
+epoch:114 val/auc:0.7128205128205128
+epoch:114 test/auc:0.804207963832377
+epoch:114 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:115 train/loss:0.09505514
+epoch:115 val/auc:0.7194139194139194
+epoch:115 test/auc:0.7963832376977916
+epoch:115 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:116 train/loss:0.09172767
+epoch:116 val/auc:0.7065934065934066
+epoch:116 test/auc:0.7873413319422709
+epoch:116 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:117 train/loss:0.08723717
+epoch:117 val/auc:0.7249084249084249
+epoch:117 test/auc:0.7922100504260129
+epoch:117 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:118 train/loss:0.079472765
+epoch:118 val/auc:0.7128205128205128
+epoch:118 test/auc:0.7962093548948009
+epoch:118 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:119 train/loss:0.07454625
+epoch:119 val/auc:0.701098901098901
+epoch:119 test/auc:0.7948182924708745
+epoch:119 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:120 train/loss:0.07479126
+epoch:120 val/auc:0.6945054945054945
+epoch:120 test/auc:0.7949921752738653
+epoch:120 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:121 train/loss:0.07286642
+epoch:121 val/auc:0.7164835164835165
+epoch:121 test/auc:0.792905581637976
+epoch:121 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:122 train/loss:0.1019262
+epoch:122 val/auc:0.6831501831501832
+epoch:122 test/auc:0.783168144670492
+epoch:122 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:123 train/loss:0.09860574
+epoch:123 val/auc:0.7032967032967034
+epoch:123 test/auc:0.8019474873934966
+epoch:123 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:124 train/loss:0.10840811
+epoch:124 val/auc:0.6754578754578754
+epoch:124 test/auc:0.7861241523213355
+epoch:124 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:125 train/loss:0.09561055
+epoch:125 val/auc:0.7047619047619047
+epoch:125 test/auc:0.7782994261867501
+epoch:125 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:126 train/loss:0.11703377
+epoch:126 val/auc:0.7274725274725274
+epoch:126 test/auc:0.7819509650495565
+epoch:126 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:127 train/loss:0.08068236
+epoch:127 val/auc:0.7014652014652014
+epoch:127 test/auc:0.762997739523561
+epoch:127 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:128 train/loss:0.09240592
+epoch:128 val/auc:0.7179487179487178
+epoch:128 test/auc:0.7847330898974091
+epoch:128 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:129 train/loss:0.0810973
+epoch:129 val/auc:0.7172161172161172
+epoch:129 test/auc:0.7718657624760911
+epoch:129 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:130 train/loss:0.06979546
+epoch:130 val/auc:0.7146520146520147
+epoch:130 test/auc:0.7798643714136672
+epoch:130 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:131 train/loss:0.06939731
+epoch:131 val/auc:0.7032967032967034
+epoch:131 test/auc:0.780733785428621
+epoch:131 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:132 train/loss:0.070638806
+epoch:132 val/auc:0.697069597069597
+epoch:132 test/auc:0.7821248478525473
+epoch:132 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:133 train/loss:0.061300702
+epoch:133 val/auc:0.6978021978021979
+epoch:133 test/auc:0.7842114414884368
+epoch:133 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:134 train/loss:0.084288366
+epoch:134 val/auc:0.752014652014652
+epoch:134 test/auc:0.7946444096678839
+epoch:134 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:135 train/loss:0.07996007
+epoch:135 val/auc:0.7021978021978021
+epoch:135 test/auc:0.7932533472439575
+epoch:135 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:136 train/loss:0.08339036
+epoch:136 val/auc:0.7142857142857143
+epoch:136 test/auc:0.80264301860546
+epoch:136 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:137 train/loss:0.08233159
+epoch:137 val/auc:0.7128205128205128
+epoch:137 test/auc:0.7890801599721787
+epoch:137 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:138 train/loss:0.07538514
+epoch:138 val/auc:0.7326007326007327
+epoch:138 test/auc:0.804207963832377
+epoch:138 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:139 train/loss:0.09497711
+epoch:139 val/auc:0.6996336996336996
+epoch:139 test/auc:0.7676925752043123
+epoch:139 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:140 train/loss:0.07297071
+epoch:140 val/auc:0.7153846153846155
+epoch:140 test/auc:0.7936011128499391
+epoch:140 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:141 train/loss:0.10682795
+epoch:141 val/auc:0.726007326007326
+epoch:141 test/auc:0.7962093548948008
+epoch:141 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:142 train/loss:0.09511152
+epoch:142 val/auc:0.6582417582417582
+epoch:142 test/auc:0.7753434185359068
+epoch:142 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:143 train/loss:0.10431903
+epoch:143 val/auc:0.7018315018315019
+epoch:143 test/auc:0.7998608937576074
+epoch:143 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:144 train/loss:0.073161945
+epoch:144 val/auc:0.7062271062271063
+epoch:144 test/auc:0.8009041905755521
+epoch:144 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:145 train/loss:0.06710391
+epoch:145 val/auc:0.6994505494505495
+epoch:145 test/auc:0.7991653625456442
+epoch:145 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:146 train/loss:0.051504254
+epoch:146 val/auc:0.7084249084249085
+epoch:146 test/auc:0.7856025039123631
+epoch:146 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:147 train/loss:0.066873774
+epoch:147 val/auc:0.7047619047619047
+epoch:147 test/auc:0.7890801599721787
+epoch:147 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:148 train/loss:0.052858986
+epoch:148 val/auc:0.7124542124542125
+epoch:148 test/auc:0.7982959485306903
+epoch:148 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:149 train/loss:0.053519487
+epoch:149 val/auc:0.7139194139194139
+epoch:149 test/auc:0.7939488784559208
+epoch:149 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:150 train/loss:0.041394547
+epoch:150 val/auc:0.7194139194139194
+epoch:150 test/auc:0.7925578160319945
+epoch:150 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:151 train/loss:0.037159212
+epoch:151 val/auc:0.7069597069597069
+epoch:151 test/auc:0.78716744913928
+epoch:151 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:152 train/loss:0.0583847
+epoch:152 val/auc:0.6996336996336996
+epoch:152 test/auc:0.7795166058076856
+epoch:152 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:153 train/loss:0.06267986
+epoch:153 val/auc:0.704945054945055
+epoch:153 test/auc:0.7922100504260129
+epoch:153 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:154 train/loss:0.051447887
+epoch:154 val/auc:0.724908424908425
+epoch:154 test/auc:0.7781255433837594
+epoch:154 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:155 train/loss:0.06644842
+epoch:155 val/auc:0.7208791208791209
+epoch:155 test/auc:0.7880368631542339
+epoch:155 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:156 train/loss:0.073676914
+epoch:156 val/auc:0.6937728937728938
+epoch:156 test/auc:0.7793427230046948
+epoch:156 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:157 train/loss:0.08098234
+epoch:157 val/auc:0.6787545787545788
+epoch:157 test/auc:0.7922100504260129
+epoch:157 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:158 train/loss:0.080665
+epoch:158 val/auc:0.7065934065934066
+epoch:158 test/auc:0.7946444096678839
+epoch:158 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:159 train/loss:0.0716479
+epoch:159 val/auc:0.7025641025641026
+epoch:159 test/auc:0.773604590505999
+epoch:159 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:160 train/loss:0.07346145
+epoch:160 val/auc:0.6754578754578755
+epoch:160 test/auc:0.7744740045209528
+epoch:160 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:161 train/loss:0.05754251
+epoch:161 val/auc:0.6948717948717948
+epoch:161 test/auc:0.7920361676230221
+epoch:161 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:162 train/loss:0.054527495
+epoch:162 val/auc:0.7179487179487178
+epoch:162 test/auc:0.8016866631890107
+epoch:162 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:163 train/loss:0.062272668
+epoch:163 val/auc:0.6989010989010989
+epoch:163 test/auc:0.7927316988349852
+epoch:163 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:164 train/loss:0.048682876
+epoch:164 val/auc:0.7249084249084249
+epoch:164 test/auc:0.7955138236828376
+epoch:164 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:165 train/loss:0.04979233
+epoch:165 val/auc:0.7102564102564103
+epoch:165 test/auc:0.7948182924708747
+epoch:165 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:166 train/loss:0.045419272
+epoch:166 val/auc:0.721978021978022
+epoch:166 test/auc:0.7965571205007825
+epoch:166 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:167 train/loss:0.03622859
+epoch:167 val/auc:0.7117216117216117
+epoch:167 test/auc:0.7882107459572248
+epoch:167 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:168 train/loss:0.05299607
+epoch:168 val/auc:0.7003663003663003
+epoch:168 test/auc:0.7887323943661971
+epoch:168 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:169 train/loss:0.050466545
+epoch:169 val/auc:0.724908424908425
+epoch:169 test/auc:0.7934272300469484
+epoch:169 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:170 train/loss:0.05109763
+epoch:170 val/auc:0.7391941391941391
+epoch:170 test/auc:0.7746478873239436
+epoch:170 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:171 train/loss:0.1119191
+epoch:171 val/auc:0.7203296703296704
+epoch:171 test/auc:0.7739523561119805
+epoch:171 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:172 train/loss:0.11294088
+epoch:172 val/auc:0.6908424908424908
+epoch:172 test/auc:0.8009041905755521
+epoch:172 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:173 train/loss:0.09920372
+epoch:173 val/auc:0.7311355311355312
+epoch:173 test/auc:0.7937749956529299
+epoch:173 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:174 train/loss:0.09912071
+epoch:174 val/auc:0.7296703296703297
+epoch:174 test/auc:0.7867327421318031
+epoch:174 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:175 train/loss:0.081213124
+epoch:175 val/auc:0.7212454212454212
+epoch:175 test/auc:0.7878629803512432
+epoch:175 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:176 train/loss:0.07736151
+epoch:176 val/auc:0.7333333333333333
+epoch:176 test/auc:0.7871674491392802
+epoch:176 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:177 train/loss:0.059981983
+epoch:177 val/auc:0.7157509157509158
+epoch:177 test/auc:0.786471917927317
+epoch:177 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:178 train/loss:0.066375524
+epoch:178 val/auc:0.7201465201465201
+epoch:178 test/auc:0.7791688402017041
+epoch:178 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:179 train/loss:0.05963425
+epoch:179 val/auc:0.7139194139194139
+epoch:179 test/auc:0.7838636758824553
+epoch:179 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:180 train/loss:0.048537068
+epoch:180 val/auc:0.7307692307692307
+epoch:180 test/auc:0.7803860198226394
+epoch:180 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:181 train/loss:0.056857288
+epoch:181 val/auc:0.7124542124542125
+epoch:181 test/auc:0.7697791688402016
+epoch:181 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:182 train/loss:0.06472781
+epoch:182 val/auc:0.7227106227106227
+epoch:182 test/auc:0.7798643714136672
+epoch:182 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:183 train/loss:0.06774358
+epoch:183 val/auc:0.7186813186813187
+epoch:183 test/auc:0.7734307077030081
+epoch:183 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:184 train/loss:0.0650007
+epoch:184 val/auc:0.7263736263736265
+epoch:184 test/auc:0.7937749956529297
+epoch:184 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:185 train/loss:0.075871006
+epoch:185 val/auc:0.7152014652014653
+epoch:185 test/auc:0.790471222396105
+epoch:185 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:186 train/loss:0.07805492
+epoch:186 val/auc:0.7318681318681319
+epoch:186 test/auc:0.7984698313336811
+epoch:186 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:187 train/loss:0.06611769
+epoch:187 val/auc:0.7186813186813187
+epoch:187 test/auc:0.7857763867153539
+epoch:187 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:188 train/loss:0.05692027
+epoch:188 val/auc:0.7164835164835165
+epoch:188 test/auc:0.7861241523213354
+epoch:188 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:189 train/loss:0.04036431
+epoch:189 val/auc:0.7282051282051283
+epoch:189 test/auc:0.7883846287602155
+epoch:189 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:190 train/loss:0.044045456
+epoch:190 val/auc:0.712820512820513
+epoch:190 test/auc:0.7958615892888193
+epoch:190 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:191 train/loss:0.04569254
+epoch:191 val/auc:0.7091575091575092
+epoch:191 test/auc:0.7908189880020865
+epoch:191 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:192 train/loss:0.0569469
+epoch:192 val/auc:0.7263736263736265
+epoch:192 test/auc:0.7915145192140497
+epoch:192 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:193 train/loss:0.043700214
+epoch:193 val/auc:0.7230769230769232
+epoch:193 test/auc:0.7701269344461833
+epoch:193 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:194 train/loss:0.06021364
+epoch:194 val/auc:0.7179487179487181
+epoch:194 test/auc:0.7715179968701095
+epoch:194 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:195 train/loss:0.04949111
+epoch:195 val/auc:0.715018315018315
+epoch:195 test/auc:0.7818640236480612
+epoch:195 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:196 train/loss:0.051888213
+epoch:196 val/auc:0.7172161172161172
+epoch:196 test/auc:0.7941227612589113
+epoch:196 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:197 train/loss:0.06394984
+epoch:197 val/auc:0.6919413919413919
+epoch:197 test/auc:0.7887323943661972
+epoch:197 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:198 train/loss:0.08639432
+epoch:198 val/auc:0.7007326007326007
+epoch:198 test/auc:0.7850808555033907
+epoch:198 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:199 train/loss:0.07568665
+epoch:199 val/auc:0.7018315018315018
+epoch:199 test/auc:0.7883846287602156
+epoch:199 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:200 train/loss:0.04892368
+epoch:200 val/auc:0.7263736263736265
+epoch:200 test/auc:0.8009041905755522
+epoch:200 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:201 train/loss:0.07652478
+epoch:201 val/auc:0.7117216117216117
+epoch:201 test/auc:0.8078595026951835
+epoch:201 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:202 train/loss:0.044988688
+epoch:202 val/auc:0.7168498168498169
+epoch:202 test/auc:0.8088158581116327
+epoch:202 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:203 train/loss:0.06313777
+epoch:203 val/auc:0.7238095238095238
+epoch:203 test/auc:0.8042079638323769
+epoch:203 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:204 train/loss:0.07903673
+epoch:204 val/auc:0.6956043956043956
+epoch:204 test/auc:0.7906451051990958
+epoch:204 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:205 train/loss:0.09114441
+epoch:205 val/auc:0.7031135531135531
+epoch:205 test/auc:0.7758650669448792
+epoch:205 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:206 train/loss:0.074040756
+epoch:206 val/auc:0.7084249084249085
+epoch:206 test/auc:0.787602156146757
+epoch:206 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:207 train/loss:0.06912288
+epoch:207 val/auc:0.7032967032967032
+epoch:207 test/auc:0.7878629803512432
+epoch:207 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:208 train/loss:0.06433615
+epoch:208 val/auc:0.7205128205128205
+epoch:208 test/auc:0.7915145192140497
+epoch:208 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:209 train/loss:0.043672934
+epoch:209 val/auc:0.7084249084249085
+epoch:209 test/auc:0.7843853242914275
+epoch:209 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:210 train/loss:0.037771177
+epoch:210 val/auc:0.7051282051282052
+epoch:210 test/auc:0.7786471917927317
+epoch:210 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:211 train/loss:0.04362873
+epoch:211 val/auc:0.7025641025641026
+epoch:211 test/auc:0.7722135280820727
+epoch:211 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:212 train/loss:0.046963055
+epoch:212 val/auc:0.7142857142857143
+epoch:212 test/auc:0.7829942618675013
+epoch:212 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:213 train/loss:0.065234184
+epoch:213 val/auc:0.6915750915750916
+epoch:213 test/auc:0.7876890975482526
+epoch:213 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:214 train/loss:0.040929273
+epoch:214 val/auc:0.6963369963369963
+epoch:214 test/auc:0.7776038949747869
+epoch:214 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:215 train/loss:0.029090848
+epoch:215 val/auc:0.7263736263736263
+epoch:215 test/auc:0.7880368631542342
+epoch:215 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:216 train/loss:0.025850054
+epoch:216 val/auc:0.7062271062271063
+epoch:216 test/auc:0.7772561293688054
+epoch:216 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:217 train/loss:0.030991975
+epoch:217 val/auc:0.7223443223443224
+epoch:217 test/auc:0.7902973395931142
+epoch:217 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:218 train/loss:0.03511056
+epoch:218 val/auc:0.7157509157509158
+epoch:218 test/auc:0.7970787689097548
+epoch:218 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:219 train/loss:0.029623466
+epoch:219 val/auc:0.7003663003663004
+epoch:219 test/auc:0.78716744913928
+epoch:219 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:220 train/loss:0.04405656
+epoch:220 val/auc:0.7113553113553114
+epoch:220 test/auc:0.7914275778125544
+epoch:220 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:221 train/loss:0.051288906
+epoch:221 val/auc:0.7296703296703297
+epoch:221 test/auc:0.7989914797426535
+epoch:221 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:222 train/loss:0.059255216
+epoch:222 val/auc:0.7095238095238096
+epoch:222 test/auc:0.7899495739871326
+epoch:222 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:223 train/loss:0.08799855
+epoch:223 val/auc:0.719047619047619
+epoch:223 test/auc:0.801773604590506
+epoch:223 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:224 train/loss:0.07150947
+epoch:224 val/auc:0.6802197802197802
+epoch:224 test/auc:0.7969918275082595
+epoch:224 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:225 train/loss:0.06463056
+epoch:225 val/auc:0.6783882783882784
+epoch:225 test/auc:0.801773604590506
+epoch:225 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:226 train/loss:0.06830917
+epoch:226 val/auc:0.6615384615384616
+epoch:226 test/auc:0.7890801599721787
+epoch:226 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:227 train/loss:0.0730625
+epoch:227 val/auc:0.6981684981684981
+epoch:227 test/auc:0.795339940879847
+epoch:227 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:228 train/loss:0.050766792
+epoch:228 val/auc:0.7108058608058608
+epoch:228 test/auc:0.7866458007303078
+epoch:228 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:229 train/loss:0.043431256
+epoch:229 val/auc:0.7032967032967034
+epoch:229 test/auc:0.7901234567901234
+epoch:229 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:230 train/loss:0.049029455
+epoch:230 val/auc:0.7054945054945054
+epoch:230 test/auc:0.7890801599721787
+epoch:230 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:231 train/loss:0.045520086
+epoch:231 val/auc:0.693040293040293
+epoch:231 test/auc:0.7856025039123631
+epoch:231 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:232 train/loss:0.036095824
+epoch:232 val/auc:0.7054945054945055
+epoch:232 test/auc:0.7899495739871326
+epoch:232 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:233 train/loss:0.035109315
+epoch:233 val/auc:0.6857142857142858
+epoch:233 test/auc:0.7875152147452616
+epoch:233 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:234 train/loss:0.032209348
+epoch:234 val/auc:0.6787545787545787
+epoch:234 test/auc:0.7753434185359068
+epoch:234 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:235 train/loss:0.0326251
+epoch:235 val/auc:0.7032967032967034
+epoch:235 test/auc:0.7902973395931142
+epoch:235 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:236 train/loss:0.02544678
+epoch:236 val/auc:0.7016483516483517
+epoch:236 test/auc:0.7952529994783516
+epoch:236 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:237 train/loss:0.05376976
+epoch:237 val/auc:0.7155677655677656
+epoch:237 test/auc:0.7938619370544253
+epoch:237 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:238 train/loss:0.046863467
+epoch:238 val/auc:0.7095238095238096
+epoch:238 test/auc:0.7955138236828377
+epoch:238 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:239 train/loss:0.027687488
+epoch:239 val/auc:0.7186813186813187
+epoch:239 test/auc:0.8047296122413493
+epoch:239 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:240 train/loss:0.029831072
+epoch:240 val/auc:0.7122710622710622
+epoch:240 test/auc:0.7960354720918101
+epoch:240 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:241 train/loss:0.032998852
+epoch:241 val/auc:0.7206959706959707
+epoch:241 test/auc:0.7834289688749783
+epoch:241 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:242 train/loss:0.0399922
+epoch:242 val/auc:0.7076923076923077
+epoch:242 test/auc:0.7887323943661971
+epoch:242 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:243 train/loss:0.05467011
+epoch:243 val/auc:0.7062271062271062
+epoch:243 test/auc:0.7971657103112502
+epoch:243 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:244 train/loss:0.05379516
+epoch:244 val/auc:0.7208791208791209
+epoch:244 test/auc:0.7962093548948009
+epoch:244 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:245 train/loss:0.041200787
+epoch:245 val/auc:0.6831501831501832
+epoch:245 test/auc:0.784037558685446
+epoch:245 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:246 train/loss:0.0424464
+epoch:246 val/auc:0.7047619047619048
+epoch:246 test/auc:0.7713441140671187
+epoch:246 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:247 train/loss:0.049811877
+epoch:247 val/auc:0.710989010989011
+epoch:247 test/auc:0.7654320987654322
+epoch:247 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:248 train/loss:0.04980634
+epoch:248 val/auc:0.7163003663003663
+epoch:248 test/auc:0.7579551382368284
+epoch:248 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:249 train/loss:0.060404036
+epoch:249 val/auc:0.7062271062271063
+epoch:249 test/auc:0.7670839853938446
+epoch:249 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:250 train/loss:0.06048588
+epoch:250 val/auc:0.6965201465201465
+epoch:250 test/auc:0.7906451051990958
+epoch:250 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:251 train/loss:0.070792474
+epoch:251 val/auc:0.6897435897435898
+epoch:251 test/auc:0.7873413319422709
+epoch:251 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:252 train/loss:0.05898079
+epoch:252 val/auc:0.6893772893772895
+epoch:252 test/auc:0.7723004694835681
+epoch:252 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:253 train/loss:0.05971188
+epoch:253 val/auc:0.6945054945054946
+epoch:253 test/auc:0.788036863154234
+epoch:253 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:254 train/loss:0.05280226
+epoch:254 val/auc:0.7021978021978023
+epoch:254 test/auc:0.8051643192488263
+epoch:254 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:255 train/loss:0.04268154
+epoch:255 val/auc:0.6897435897435897
+epoch:255 test/auc:0.781603199443575
+epoch:255 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:256 train/loss:0.048016403
+epoch:256 val/auc:0.7186813186813188
+epoch:256 test/auc:0.7790818988002086
+epoch:256 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:257 train/loss:0.043836385
+epoch:257 val/auc:0.6946886446886448
+epoch:257 test/auc:0.789340984176665
+epoch:257 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:258 train/loss:0.039967593
+epoch:258 val/auc:0.7197802197802199
+epoch:258 test/auc:0.7877760389497478
+epoch:258 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:259 train/loss:0.04696113
+epoch:259 val/auc:0.7177655677655678
+epoch:259 test/auc:0.7866458007303078
+epoch:259 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:260 train/loss:0.05044431
+epoch:260 val/auc:0.7076923076923077
+epoch:260 test/auc:0.7986437141366719
+epoch:260 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:261 train/loss:0.039472744
+epoch:261 val/auc:0.7135531135531136
+epoch:261 test/auc:0.8040340810293862
+epoch:261 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:262 train/loss:0.051866814
+epoch:262 val/auc:0.691941391941392
+epoch:262 test/auc:0.7946444096678837
+epoch:262 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:263 train/loss:0.034678087
+epoch:263 val/auc:0.6919413919413919
+epoch:263 test/auc:0.7911667536080681
+epoch:263 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:264 train/loss:0.03150999
+epoch:264 val/auc:0.6882783882783884
+epoch:264 test/auc:0.7949921752738653
+epoch:264 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:265 train/loss:0.038156666
+epoch:265 val/auc:0.6809523809523811
+epoch:265 test/auc:0.7878629803512432
+epoch:265 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:266 train/loss:0.03287226
+epoch:266 val/auc:0.7086080586080586
+epoch:266 test/auc:0.8015997217875153
+epoch:266 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:267 train/loss:0.03266664
+epoch:267 val/auc:0.6956043956043957
+epoch:267 test/auc:0.7976004173187272
+epoch:267 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:268 train/loss:0.027083056
+epoch:268 val/auc:0.6868131868131869
+epoch:268 test/auc:0.791601460615545
+epoch:268 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:269 train/loss:0.03933068
+epoch:269 val/auc:0.7029304029304029
+epoch:269 test/auc:0.796904886106764
+epoch:269 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:270 train/loss:0.036923364
+epoch:270 val/auc:0.6946886446886447
+epoch:270 test/auc:0.8045557294383585
+epoch:270 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:271 train/loss:0.044983383
+epoch:271 val/auc:0.6974358974358975
+epoch:271 test/auc:0.787341331942271
+epoch:271 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:272 train/loss:0.035685018
+epoch:272 val/auc:0.7078754578754579
+epoch:272 test/auc:0.79490523387237
+epoch:272 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:273 train/loss:0.0284447
+epoch:273 val/auc:0.7023809523809524
+epoch:273 test/auc:0.7902973395931142
+epoch:273 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:274 train/loss:0.03186752
+epoch:274 val/auc:0.7119047619047619
+epoch:274 test/auc:0.7981220657276994
+epoch:274 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:275 train/loss:0.03419389
+epoch:275 val/auc:0.702930402930403
+epoch:275 test/auc:0.7988175969396626
+epoch:275 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:276 train/loss:0.05859404
+epoch:276 val/auc:0.7054945054945055
+epoch:276 test/auc:0.7909928708050773
+epoch:276 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:277 train/loss:0.04756592
+epoch:277 val/auc:0.7194139194139194
+epoch:277 test/auc:0.8007303077725613
+epoch:277 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:278 train/loss:0.026926327
+epoch:278 val/auc:0.7152014652014652
+epoch:278 test/auc:0.779168840201704
+epoch:278 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:279 train/loss:0.056892402
+epoch:279 val/auc:0.7025641025641026
+epoch:279 test/auc:0.7722135280820728
+epoch:279 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:280 train/loss:0.05737979
+epoch:280 val/auc:0.7047619047619047
+epoch:280 test/auc:0.7859502695183447
+epoch:280 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:281 train/loss:0.046341315
+epoch:281 val/auc:0.7042124542124543
+epoch:281 test/auc:0.7911667536080682
+epoch:281 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:282 train/loss:0.0432015
+epoch:282 val/auc:0.7000000000000001
+epoch:282 test/auc:0.7809076682316117
+epoch:282 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:283 train/loss:0.03385809
+epoch:283 val/auc:0.7086080586080586
+epoch:283 test/auc:0.789601808381151
+epoch:283 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:284 train/loss:0.024194302
+epoch:284 val/auc:0.7205128205128206
+epoch:284 test/auc:0.7941227612589113
+epoch:284 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:285 train/loss:0.02082332
+epoch:285 val/auc:0.6948717948717948
+epoch:285 test/auc:0.7936011128499391
+epoch:285 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:286 train/loss:0.020845208
+epoch:286 val/auc:0.6978021978021979
+epoch:286 test/auc:0.7899495739871326
+epoch:286 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:287 train/loss:0.025453864
+epoch:287 val/auc:0.6818681318681319
+epoch:287 test/auc:0.7789949573987133
+epoch:287 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:288 train/loss:0.03252987
+epoch:288 val/auc:0.7000000000000001
+epoch:288 test/auc:0.7998608937576073
+epoch:288 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:289 train/loss:0.042827275
+epoch:289 val/auc:0.7238095238095238
+epoch:289 test/auc:0.7784733089897409
+epoch:289 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:290 train/loss:0.062047422
+epoch:290 val/auc:0.7007326007326008
+epoch:290 test/auc:0.7805599026256304
+epoch:290 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:291 train/loss:0.039420247
+epoch:291 val/auc:0.6965201465201466
+epoch:291 test/auc:0.7836028516779691
+epoch:291 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:292 train/loss:0.033169027
+epoch:292 val/auc:0.7142857142857143
+epoch:292 test/auc:0.7955138236828377
+epoch:292 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:293 train/loss:0.025325347
+epoch:293 val/auc:0.7043956043956044
+epoch:293 test/auc:0.7866458007303078
+epoch:293 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:294 train/loss:0.02630698
+epoch:294 val/auc:0.7139194139194139
+epoch:294 test/auc:0.7859502695183447
+epoch:294 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:295 train/loss:0.03087149
+epoch:295 val/auc:0.6912087912087912
+epoch:295 test/auc:0.7786471917927318
+epoch:295 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:296 train/loss:0.0374901
+epoch:296 val/auc:0.7071428571428572
+epoch:296 test/auc:0.7908189880020866
+epoch:296 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:297 train/loss:0.04237551
+epoch:297 val/auc:0.6871794871794872
+epoch:297 test/auc:0.7989914797426534
+epoch:297 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:298 train/loss:0.048771985
+epoch:298 val/auc:0.6967032967032967
+epoch:298 test/auc:0.8034254912189184
+epoch:298 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:299 train/loss:0.031876203
+epoch:299 val/auc:0.7034798534798534
+epoch:299 test/auc:0.7941227612589115
+epoch:299 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:300 train/loss:0.03935751
+epoch:300 val/auc:0.6877289377289377
+epoch:300 test/auc:0.789601808381151
+epoch:300 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:301 train/loss:0.045753583
+epoch:301 val/auc:0.7097069597069597
+epoch:301 test/auc:0.8009041905755521
+epoch:301 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:302 train/loss:0.022652715
+epoch:302 val/auc:0.6827838827838828
+epoch:302 test/auc:0.7821248478525473
+epoch:302 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:303 train/loss:0.02084325
+epoch:303 val/auc:0.7005494505494505
+epoch:303 test/auc:0.7876890975482526
+epoch:303 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:304 train/loss:0.02243908
+epoch:304 val/auc:0.7031135531135532
+epoch:304 test/auc:0.7842983828899323
+epoch:304 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:305 train/loss:0.02522437
+epoch:305 val/auc:0.701098901098901
+epoch:305 test/auc:0.7789949573987133
+epoch:305 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:306 train/loss:0.037047118
+epoch:306 val/auc:0.7214285714285714
+epoch:306 test/auc:0.788471570161711
+epoch:306 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:307 train/loss:0.038848367
+epoch:307 val/auc:0.7106227106227107
+epoch:307 test/auc:0.7699530516431924
+epoch:307 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:308 train/loss:0.0480353
+epoch:308 val/auc:0.706959706959707
+epoch:308 test/auc:0.7984698313336811
+epoch:308 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:309 train/loss:0.06340075
+epoch:309 val/auc:0.7245421245421245
+epoch:309 test/auc:0.7991653625456442
+epoch:309 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:310 train/loss:0.042232648
+epoch:310 val/auc:0.7300366300366301
+epoch:310 test/auc:0.7850808555033907
+epoch:310 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:311 train/loss:0.03920342
+epoch:311 val/auc:0.7113553113553114
+epoch:311 test/auc:0.790905929403582
+epoch:311 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:312 train/loss:0.023418149
+epoch:312 val/auc:0.6908424908424908
+epoch:312 test/auc:0.7850808555033907
+epoch:312 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:313 train/loss:0.029393962
+epoch:313 val/auc:0.7230769230769231
+epoch:313 test/auc:0.7963832376977916
+epoch:313 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:314 train/loss:0.035247114
+epoch:314 val/auc:0.7093406593406594
+epoch:314 test/auc:0.7915145192140497
+epoch:314 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:315 train/loss:0.04375124
+epoch:315 val/auc:0.6857142857142857
+epoch:315 test/auc:0.7969048861067639
+epoch:315 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:316 train/loss:0.041546762
+epoch:316 val/auc:0.702930402930403
+epoch:316 test/auc:0.7911667536080682
+epoch:316 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:317 train/loss:0.045358974
+epoch:317 val/auc:0.7095238095238096
+epoch:317 test/auc:0.797339593114241
+epoch:317 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:318 train/loss:0.041467346
+epoch:318 val/auc:0.6937728937728938
+epoch:318 test/auc:0.7977743001217179
+epoch:318 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:319 train/loss:0.031448077
+epoch:319 val/auc:0.7109890109890109
+epoch:319 test/auc:0.7936011128499391
+epoch:319 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:320 train/loss:0.019971304
+epoch:320 val/auc:0.68003663003663
+epoch:320 test/auc:0.7929055816379761
+epoch:320 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:321 train/loss:0.034210518
+epoch:321 val/auc:0.7032967032967032
+epoch:321 test/auc:0.7967310033037732
+epoch:321 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:322 train/loss:0.036348447
+epoch:322 val/auc:0.7097069597069597
+epoch:322 test/auc:0.7772561293688054
+epoch:322 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:323 train/loss:0.024859203
+epoch:323 val/auc:0.693040293040293
+epoch:323 test/auc:0.8019474873934969
+epoch:323 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:324 train/loss:0.025065817
+epoch:324 val/auc:0.7010989010989012
+epoch:324 test/auc:0.7821248478525474
+epoch:324 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:325 train/loss:0.014962365
+epoch:325 val/auc:0.710989010989011
+epoch:325 test/auc:0.7708224656581464
+epoch:325 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:326 train/loss:0.013811122
+epoch:326 val/auc:0.7054945054945055
+epoch:326 test/auc:0.7702138758476786
+epoch:326 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:327 train/loss:0.013436739
+epoch:327 val/auc:0.6983516483516483
+epoch:327 test/auc:0.7646496261519735
+epoch:327 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:328 train/loss:0.011646841
+epoch:328 val/auc:0.7097069597069597
+epoch:328 test/auc:0.7782994261867502
+epoch:328 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:329 train/loss:0.021763075
+epoch:329 val/auc:0.7043956043956044
+epoch:329 test/auc:0.7842983828899323
+epoch:329 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:330 train/loss:0.026131457
+epoch:330 val/auc:0.6985347985347985
+epoch:330 test/auc:0.7806468440271257
+epoch:330 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:331 train/loss:0.045498073
+epoch:331 val/auc:0.6970695970695971
+epoch:331 test/auc:0.7887323943661972
+epoch:331 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:332 train/loss:0.045578126
+epoch:332 val/auc:0.7210622710622712
+epoch:332 test/auc:0.7823856720570335
+epoch:332 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:333 train/loss:0.032840475
+epoch:333 val/auc:0.6851648351648352
+epoch:333 test/auc:0.7762997739523562
+epoch:333 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:334 train/loss:0.034913193
+epoch:334 val/auc:0.6967032967032967
+epoch:334 test/auc:0.7914275778125544
+epoch:334 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:335 train/loss:0.035220265
+epoch:335 val/auc:0.6926739926739927
+epoch:335 test/auc:0.7836028516779691
+epoch:335 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:336 train/loss:0.051228944
+epoch:336 val/auc:0.6912087912087912
+epoch:336 test/auc:0.7885585115632064
+epoch:336 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:337 train/loss:0.042071063
+epoch:337 val/auc:0.7021978021978023
+epoch:337 test/auc:0.7951660580768561
+epoch:337 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:338 train/loss:0.055212215
+epoch:338 val/auc:0.6772893772893772
+epoch:338 test/auc:0.7967310033037732
+epoch:338 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:339 train/loss:0.043379094
+epoch:339 val/auc:0.6959706959706959
+epoch:339 test/auc:0.7751695357329159
+epoch:339 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:340 train/loss:0.048945174
+epoch:340 val/auc:0.6915750915750916
+epoch:340 test/auc:0.7958615892888192
+epoch:340 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:341 train/loss:0.04191989
+epoch:341 val/auc:0.6721611721611722
+epoch:341 test/auc:0.7932533472439576
+epoch:341 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:342 train/loss:0.027680898
+epoch:342 val/auc:0.68992673992674
+epoch:342 test/auc:0.7882107459572248
+epoch:342 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:343 train/loss:0.03426285
+epoch:343 val/auc:0.7047619047619048
+epoch:343 test/auc:0.7782994261867501
+epoch:343 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:344 train/loss:0.033542994
+epoch:344 val/auc:0.7084249084249084
+epoch:344 test/auc:0.7792557816031994
+epoch:344 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:345 train/loss:0.03878162
+epoch:345 val/auc:0.7031135531135532
+epoch:345 test/auc:0.784037558685446
+epoch:345 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:346 train/loss:0.034752067
+epoch:346 val/auc:0.7133699633699634
+epoch:346 test/auc:0.7975134759172319
+epoch:346 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:347 train/loss:0.033778295
+epoch:347 val/auc:0.7007326007326008
+epoch:347 test/auc:0.792905581637976
+epoch:347 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:348 train/loss:0.03543572
+epoch:348 val/auc:0.7065934065934066
+epoch:348 test/auc:0.7883846287602155
+epoch:348 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:349 train/loss:0.03067519
+epoch:349 val/auc:0.7282051282051282
+epoch:349 test/auc:0.7912536950095634
+epoch:349 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:350 train/loss:0.036026534
+epoch:350 val/auc:0.7091575091575092
+epoch:350 test/auc:0.7923839332290036
+epoch:350 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:351 train/loss:0.025441831
+epoch:351 val/auc:0.7113553113553114
+epoch:351 test/auc:0.79377499565293
+epoch:351 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:352 train/loss:0.038418695
+epoch:352 val/auc:0.7056776556776557
+epoch:352 test/auc:0.7798643714136673
+epoch:352 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:353 train/loss:0.048051372
+epoch:353 val/auc:0.6992673992673993
+epoch:353 test/auc:0.7979481829247087
+epoch:353 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:354 train/loss:0.024043921
+epoch:354 val/auc:0.7153846153846154
+epoch:354 test/auc:0.8068162058772388
+epoch:354 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:355 train/loss:0.034168445
+epoch:355 val/auc:0.7230769230769231
+epoch:355 test/auc:0.7925578160319945
+epoch:355 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:356 train/loss:0.02904931
+epoch:356 val/auc:0.7058608058608059
+epoch:356 test/auc:0.8043818466353677
+epoch:356 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:357 train/loss:0.040138964
+epoch:357 val/auc:0.6956043956043956
+epoch:357 test/auc:0.7981220657276995
+epoch:357 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:358 train/loss:0.026049435
+epoch:358 val/auc:0.6831501831501832
+epoch:358 test/auc:0.7953399408798469
+epoch:358 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:359 train/loss:0.02541115
+epoch:359 val/auc:0.6910256410256411
+epoch:359 test/auc:0.7991653625456442
+epoch:359 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:360 train/loss:0.02471111
+epoch:360 val/auc:0.7095238095238096
+epoch:360 test/auc:0.7878629803512432
+epoch:360 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:361 train/loss:0.029185686
+epoch:361 val/auc:0.7012820512820512
+epoch:361 test/auc:0.7784733089897409
+epoch:361 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:362 train/loss:0.036415674
+epoch:362 val/auc:0.6710622710622711
+epoch:362 test/auc:0.7869935663362894
+epoch:362 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:363 train/loss:0.03208638
+epoch:363 val/auc:0.7217948717948718
+epoch:363 test/auc:0.7851677969048861
+epoch:363 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:364 train/loss:0.026528712
+epoch:364 val/auc:0.7040293040293041
+epoch:364 test/auc:0.7819509650495566
+epoch:364 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:365 train/loss:0.039767213
+epoch:365 val/auc:0.7177655677655678
+epoch:365 test/auc:0.77716918796731
+epoch:365 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:366 train/loss:0.02377714
+epoch:366 val/auc:0.689010989010989
+epoch:366 test/auc:0.7829942618675013
+epoch:366 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:367 train/loss:0.023447428
+epoch:367 val/auc:0.6809523809523809
+epoch:367 test/auc:0.7748217701269344
+epoch:367 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:368 train/loss:0.01838988
+epoch:368 val/auc:0.7108058608058608
+epoch:368 test/auc:0.7786471917927317
+epoch:368 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:369 train/loss:0.013454203
+epoch:369 val/auc:0.698901098901099
+epoch:369 test/auc:0.7722135280820728
+epoch:369 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:370 train/loss:0.017861137
+epoch:370 val/auc:0.6932234432234433
+epoch:370 test/auc:0.781603199443575
+epoch:370 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:371 train/loss:0.015250887
+epoch:371 val/auc:0.7203296703296703
+epoch:371 test/auc:0.7793427230046948
+epoch:371 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:372 train/loss:0.016335413
+epoch:372 val/auc:0.7131868131868132
+epoch:372 test/auc:0.7791688402017041
+epoch:372 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:373 train/loss:0.019269053
+epoch:373 val/auc:0.7043956043956043
+epoch:373 test/auc:0.7931664058424622
+epoch:373 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:374 train/loss:0.03231626
+epoch:374 val/auc:0.7161172161172161
+epoch:374 test/auc:0.7913406364110589
+epoch:374 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:375 train/loss:0.027906818
+epoch:375 val/auc:0.7183150183150183
+epoch:375 test/auc:0.7955138236828376
+epoch:375 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:376 train/loss:0.024980923
+epoch:376 val/auc:0.7098901098901099
+epoch:376 test/auc:0.7916884020170404
+epoch:376 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:377 train/loss:0.019297514
+epoch:377 val/auc:0.7267399267399268
+epoch:377 test/auc:0.792036167623022
+epoch:377 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:378 train/loss:0.029144678
+epoch:378 val/auc:0.7221611721611721
+epoch:378 test/auc:0.7911667536080681
+epoch:378 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:379 train/loss:0.042966653
+epoch:379 val/auc:0.7212454212454212
+epoch:379 test/auc:0.7831681446704921
+epoch:379 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:380 train/loss:0.048174657
+epoch:380 val/auc:0.7098901098901099
+epoch:380 test/auc:0.7836897930794644
+epoch:380 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:381 train/loss:0.03535554
+epoch:381 val/auc:0.7217948717948718
+epoch:381 test/auc:0.762302208311598
+epoch:381 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:382 train/loss:0.029023787
+epoch:382 val/auc:0.7043956043956044
+epoch:382 test/auc:0.7486524082768214
+epoch:382 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:383 train/loss:0.029005203
+epoch:383 val/auc:0.7250915750915752
+epoch:383 test/auc:0.7761258911493654
+epoch:383 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:384 train/loss:0.033707943
+epoch:384 val/auc:0.7183150183150183
+epoch:384 test/auc:0.7656059815684229
+epoch:384 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:385 train/loss:0.038087755
+epoch:385 val/auc:0.6957875457875458
+epoch:385 test/auc:0.7664753955833767
+epoch:385 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:386 train/loss:0.050376795
+epoch:386 val/auc:0.7115384615384616
+epoch:386 test/auc:0.758998435054773
+epoch:386 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:387 train/loss:0.05592311
+epoch:387 val/auc:0.7076923076923077
+epoch:387 test/auc:0.7559554860024343
+epoch:387 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:388 train/loss:0.050723832
+epoch:388 val/auc:0.7012820512820512
+epoch:388 test/auc:0.7655190401669274
+epoch:388 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:389 train/loss:0.044397917
+epoch:389 val/auc:0.6994505494505495
+epoch:389 test/auc:0.7636063293340288
+epoch:389 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:390 train/loss:0.028964855
+epoch:390 val/auc:0.7177655677655677
+epoch:390 test/auc:0.7690836376282386
+epoch:390 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:391 train/loss:0.034922637
+epoch:391 val/auc:0.6970695970695971
+epoch:391 test/auc:0.7683881064162754
+epoch:391 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:392 train/loss:0.030528102
+epoch:392 val/auc:0.7283882783882784
+epoch:392 test/auc:0.7814293166405842
+epoch:392 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:393 train/loss:0.04824393
+epoch:393 val/auc:0.6941391941391941
+epoch:393 test/auc:0.7721265866805773
+epoch:393 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:394 train/loss:0.039695702
+epoch:394 val/auc:0.6893772893772894
+epoch:394 test/auc:0.7828203790645105
+epoch:394 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:395 train/loss:0.03765217
+epoch:395 val/auc:0.6921245421245421
+epoch:395 test/auc:0.7939488784559208
+epoch:395 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:396 train/loss:0.061315283
+epoch:396 val/auc:0.6780219780219781
+epoch:396 test/auc:0.7671709267953399
+epoch:396 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:397 train/loss:0.07820442
+epoch:397 val/auc:0.7117216117216117
+epoch:397 test/auc:0.7779516605807686
+epoch:397 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:398 train/loss:0.06969076
+epoch:398 val/auc:0.7146520146520147
+epoch:398 test/auc:0.7925578160319945
+epoch:398 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:399 train/loss:0.06430896
+epoch:399 val/auc:0.6921245421245421
+epoch:399 test/auc:0.7826464962615197
+epoch:399 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:400 train/loss:0.049554657
+epoch:400 val/auc:0.7076923076923077
+epoch:400 test/auc:0.7913406364110589
+epoch:400 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:401 train/loss:0.056915436
+epoch:401 val/auc:0.7117216117216116
+epoch:401 test/auc:0.7903842809946097
+epoch:401 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:402 train/loss:0.055595655
+epoch:402 val/auc:0.7357142857142857
+epoch:402 test/auc:0.7939488784559207
+epoch:402 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:403 train/loss:0.054508224
+epoch:403 val/auc:0.6915750915750916
+epoch:403 test/auc:0.8014258389845244
+epoch:403 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:404 train/loss:0.07244201
+epoch:404 val/auc:0.6908424908424908
+epoch:404 test/auc:0.8050773778473309
+epoch:404 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:405 train/loss:0.040862843
+epoch:405 val/auc:0.6923076923076923
+epoch:405 test/auc:0.792905581637976
+epoch:405 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:406 train/loss:0.026537962
+epoch:406 val/auc:0.6743589743589744
+epoch:406 test/auc:0.7930794644409668
+epoch:406 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:407 train/loss:0.02764707
+epoch:407 val/auc:0.6695970695970697
+epoch:407 test/auc:0.8010780733785429
+epoch:407 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:408 train/loss:0.024388775
+epoch:408 val/auc:0.6692307692307693
+epoch:408 test/auc:0.7940358198574161
+epoch:408 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:409 train/loss:0.033051934
+epoch:409 val/auc:0.6752747252747253
+epoch:409 test/auc:0.7956877064858285
+epoch:409 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:410 train/loss:0.026955126
+epoch:410 val/auc:0.7045787545787546
+epoch:410 test/auc:0.7889062771691879
+epoch:410 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:411 train/loss:0.033730637
+epoch:411 val/auc:0.6994505494505495
+epoch:411 test/auc:0.7955138236828377
+epoch:411 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:412 train/loss:0.029822677
+epoch:412 val/auc:0.6919413919413919
+epoch:412 test/auc:0.8033385498174231
+epoch:412 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:413 train/loss:0.02403223
+epoch:413 val/auc:0.7065934065934066
+epoch:413 test/auc:0.8022952529994783
+epoch:413 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:414 train/loss:0.015340948
+epoch:414 val/auc:0.6831501831501832
+epoch:414 test/auc:0.7958615892888192
+epoch:414 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:415 train/loss:0.027244737
+epoch:415 val/auc:0.6893772893772894
+epoch:415 test/auc:0.7926447574334898
+epoch:415 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:416 train/loss:0.02627168
+epoch:416 val/auc:0.707875457875458
+epoch:416 test/auc:0.8025560772039645
+epoch:416 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:417 train/loss:0.013280413
+epoch:417 val/auc:0.7120879120879121
+epoch:417 test/auc:0.8109893931490175
+epoch:417 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:418 train/loss:0.01488265
+epoch:418 val/auc:0.6956043956043957
+epoch:418 test/auc:0.7995131281516258
+epoch:418 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:419 train/loss:0.021824153
+epoch:419 val/auc:0.6893772893772894
+epoch:419 test/auc:0.80490349504434
+epoch:419 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:420 train/loss:0.0324779
+epoch:420 val/auc:0.6879120879120879
+epoch:420 test/auc:0.8120326899669622
+epoch:420 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:421 train/loss:0.08274132
+epoch:421 val/auc:0.6919413919413919
+epoch:421 test/auc:0.814640932011824
+epoch:421 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:422 train/loss:0.070320606
+epoch:422 val/auc:0.697069597069597
+epoch:422 test/auc:0.7962093548948008
+epoch:422 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:423 train/loss:0.043171126
+epoch:423 val/auc:0.7131868131868132
+epoch:423 test/auc:0.8255955486002435
+epoch:423 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:424 train/loss:0.04053974
+epoch:424 val/auc:0.6732600732600733
+epoch:424 test/auc:0.7941227612589115
+epoch:424 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:425 train/loss:0.024233019
+epoch:425 val/auc:0.7106227106227107
+epoch:425 test/auc:0.7949921752738655
+epoch:425 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:426 train/loss:0.023864204
+epoch:426 val/auc:0.7080586080586081
+epoch:426 test/auc:0.7982959485306903
+epoch:426 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:427 train/loss:0.02921314
+epoch:427 val/auc:0.7025641025641026
+epoch:427 test/auc:0.8040340810293862
+epoch:427 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:428 train/loss:0.030774616
+epoch:428 val/auc:0.7045787545787546
+epoch:428 test/auc:0.7970787689097548
+epoch:428 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:429 train/loss:0.032533254
+epoch:429 val/auc:0.7084249084249084
+epoch:429 test/auc:0.8151625804207964
+epoch:429 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:430 train/loss:0.023322431
+epoch:430 val/auc:0.7197802197802199
+epoch:430 test/auc:0.8098591549295775
+epoch:430 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:431 train/loss:0.010343758
+epoch:431 val/auc:0.6972527472527472
+epoch:431 test/auc:0.7956877064858285
+epoch:431 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:432 train/loss:0.010730608
+epoch:432 val/auc:0.680952380952381
+epoch:432 test/auc:0.7887323943661971
+epoch:432 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:433 train/loss:0.010988291
+epoch:433 val/auc:0.7216117216117216
+epoch:433 test/auc:0.7982959485306903
+epoch:433 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:434 train/loss:0.015239869
+epoch:434 val/auc:0.7282051282051282
+epoch:434 test/auc:0.8101199791340635
+epoch:434 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:435 train/loss:0.022505185
+epoch:435 val/auc:0.710989010989011
+epoch:435 test/auc:0.797774300121718
+epoch:435 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:436 train/loss:0.025445411
+epoch:436 val/auc:0.7197802197802198
+epoch:436 test/auc:0.8115110415579899
+epoch:436 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:437 train/loss:0.017335419
+epoch:437 val/auc:0.6992673992673992
+epoch:437 test/auc:0.7979481829247088
+epoch:437 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:438 train/loss:0.023519367
+epoch:438 val/auc:0.7236263736263736
+epoch:438 test/auc:0.7895148669796557
+epoch:438 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:439 train/loss:0.026375078
+epoch:439 val/auc:0.700915750915751
+epoch:439 test/auc:0.7974265345157364
+epoch:439 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:440 train/loss:0.036471736
+epoch:440 val/auc:0.7029304029304029
+epoch:440 test/auc:0.8014258389845244
+epoch:440 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:441 train/loss:0.022294708
+epoch:441 val/auc:0.704945054945055
+epoch:441 test/auc:0.7956877064858285
+epoch:441 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:442 train/loss:0.020475682
+epoch:442 val/auc:0.6924908424908425
+epoch:442 test/auc:0.7934272300469484
+epoch:442 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:443 train/loss:0.019466901
+epoch:443 val/auc:0.6945054945054945
+epoch:443 test/auc:0.7782994261867501
+epoch:443 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:444 train/loss:0.016776135
+epoch:444 val/auc:0.7104395604395604
+epoch:444 test/auc:0.7892540427751694
+epoch:444 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:445 train/loss:0.012505036
+epoch:445 val/auc:0.7053113553113554
+epoch:445 test/auc:0.7918622848200313
+epoch:445 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:446 train/loss:0.010409773
+epoch:446 val/auc:0.6952380952380953
+epoch:446 test/auc:0.7922100504260129
+epoch:446 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:447 train/loss:0.010214586
+epoch:447 val/auc:0.7031135531135532
+epoch:447 test/auc:0.7890801599721787
+epoch:447 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:448 train/loss:0.009993996
+epoch:448 val/auc:0.6836996336996337
+epoch:448 test/auc:0.7812554338375933
+epoch:448 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:449 train/loss:0.021949291
+epoch:449 val/auc:0.6994505494505495
+epoch:449 test/auc:0.7871674491392802
+epoch:449 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:450 train/loss:0.018779784
+epoch:450 val/auc:0.701098901098901
+epoch:450 test/auc:0.800208659363589
+epoch:450 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:451 train/loss:0.014904544
+epoch:451 val/auc:0.6888278388278389
+epoch:451 test/auc:0.7981220657276996
+epoch:451 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:452 train/loss:0.014072029
+epoch:452 val/auc:0.694871794871795
+epoch:452 test/auc:0.8022952529994783
+epoch:452 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:453 train/loss:0.01223588
+epoch:453 val/auc:0.7146520146520147
+epoch:453 test/auc:0.8091636237176143
+epoch:453 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:454 train/loss:0.0151697695
+epoch:454 val/auc:0.7274725274725274
+epoch:454 test/auc:0.8080333854981743
+epoch:454 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:455 train/loss:0.02168889
+epoch:455 val/auc:0.7038461538461538
+epoch:455 test/auc:0.8029038428099461
+epoch:455 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:456 train/loss:0.030030051
+epoch:456 val/auc:0.7053113553113554
+epoch:456 test/auc:0.7932533472439575
+epoch:456 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:457 train/loss:0.025442734
+epoch:457 val/auc:0.6967032967032968
+epoch:457 test/auc:0.7998608937576073
+epoch:457 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:458 train/loss:0.018982504
+epoch:458 val/auc:0.7122710622710623
+epoch:458 test/auc:0.7930794644409668
+epoch:458 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:459 train/loss:0.011627169
+epoch:459 val/auc:0.7216117216117216
+epoch:459 test/auc:0.8003825421665798
+epoch:459 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:460 train/loss:0.019936718
+epoch:460 val/auc:0.6930402930402931
+epoch:460 test/auc:0.8022952529994783
+epoch:460 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:461 train/loss:0.029105863
+epoch:461 val/auc:0.7000000000000001
+epoch:461 test/auc:0.7913406364110589
+epoch:461 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:462 train/loss:0.024248675
+epoch:462 val/auc:0.6996336996336997
+epoch:462 test/auc:0.8095983307250914
+epoch:462 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:463 train/loss:0.035441335
+epoch:463 val/auc:0.7183150183150183
+epoch:463 test/auc:0.7902973395931142
+epoch:463 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:464 train/loss:0.024174897
+epoch:464 val/auc:0.691025641025641
+epoch:464 test/auc:0.7939488784559208
+epoch:464 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:465 train/loss:0.03903438
+epoch:465 val/auc:0.6919413919413919
+epoch:465 test/auc:0.8042079638323769
+epoch:465 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:466 train/loss:0.0329556
+epoch:466 val/auc:0.6978021978021978
+epoch:466 test/auc:0.792470874630499
+epoch:466 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:467 train/loss:0.063734464
+epoch:467 val/auc:0.6787545787545788
+epoch:467 test/auc:0.8043818466353678
+epoch:467 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:468 train/loss:0.05726271
+epoch:468 val/auc:0.7282051282051282
+epoch:468 test/auc:0.8049034950443401
+epoch:468 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:469 train/loss:0.05649288
+epoch:469 val/auc:0.7067765567765568
+epoch:469 test/auc:0.8012519561815337
+epoch:469 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:470 train/loss:0.044254206
+epoch:470 val/auc:0.7003663003663004
+epoch:470 test/auc:0.8021213701964875
+epoch:470 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:471 train/loss:0.023431608
+epoch:471 val/auc:0.7227106227106227
+epoch:471 test/auc:0.8059467918622848
+epoch:471 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:472 train/loss:0.023639726
+epoch:472 val/auc:0.728021978021978
+epoch:472 test/auc:0.7939488784559208
+epoch:472 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:473 train/loss:0.026984118
+epoch:473 val/auc:0.7153846153846155
+epoch:473 test/auc:0.8024691358024691
+epoch:473 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:474 train/loss:0.03563088
+epoch:474 val/auc:0.7010989010989012
+epoch:474 test/auc:0.7946444096678839
+epoch:474 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:475 train/loss:0.036308452
+epoch:475 val/auc:0.706959706959707
+epoch:475 test/auc:0.8052512606503217
+epoch:475 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:476 train/loss:0.027376967
+epoch:476 val/auc:0.7113553113553114
+epoch:476 test/auc:0.8150756390193009
+epoch:476 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:477 train/loss:0.028464433
+epoch:477 val/auc:0.6919413919413919
+epoch:477 test/auc:0.8126412797774301
+epoch:477 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:478 train/loss:0.042868678
+epoch:478 val/auc:0.7172161172161172
+epoch:478 test/auc:0.8094244479221004
+epoch:478 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:479 train/loss:0.026236586
+epoch:479 val/auc:0.7221611721611721
+epoch:479 test/auc:0.8031646670144323
+epoch:479 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:480 train/loss:0.032730505
+epoch:480 val/auc:0.7183150183150184
+epoch:480 test/auc:0.8163797600417319
+epoch:480 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:481 train/loss:0.035384133
+epoch:481 val/auc:0.7355311355311356
+epoch:481 test/auc:0.8172491740566857
+epoch:481 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:482 train/loss:0.0126186805
+epoch:482 val/auc:0.7223443223443223
+epoch:482 test/auc:0.8202921231090246
+epoch:482 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:483 train/loss:0.015280519
+epoch:483 val/auc:0.7135531135531136
+epoch:483 test/auc:0.8073378542862111
+epoch:483 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:484 train/loss:0.024842538
+epoch:484 val/auc:0.7153846153846154
+epoch:484 test/auc:0.8003825421665798
+epoch:484 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:485 train/loss:0.015248466
+epoch:485 val/auc:0.7230769230769232
+epoch:485 test/auc:0.8148148148148148
+epoch:485 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:486 train/loss:0.022555538
+epoch:486 val/auc:0.7126373626373627
+epoch:486 test/auc:0.8018605459920014
+epoch:486 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:487 train/loss:0.013743162
+epoch:487 val/auc:0.7153846153846155
+epoch:487 test/auc:0.8012519561815337
+epoch:487 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:488 train/loss:0.013987316
+epoch:488 val/auc:0.7093406593406594
+epoch:488 test/auc:0.7985567727351763
+epoch:488 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:489 train/loss:0.022198178
+epoch:489 val/auc:0.7135531135531137
+epoch:489 test/auc:0.7996870109546166
+epoch:489 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:490 train/loss:0.050511714
+epoch:490 val/auc:0.6871794871794872
+epoch:490 test/auc:0.8002086593635889
+epoch:490 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:491 train/loss:0.045870118
+epoch:491 val/auc:0.6912087912087912
+epoch:491 test/auc:0.7941227612589115
+epoch:491 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:492 train/loss:0.039149143
+epoch:492 val/auc:0.6831501831501832
+epoch:492 test/auc:0.801078073378543
+epoch:492 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:493 train/loss:0.024673078
+epoch:493 val/auc:0.6897435897435897
+epoch:493 test/auc:0.7789949573987133
+epoch:493 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:494 train/loss:0.020397916
+epoch:494 val/auc:0.702930402930403
+epoch:494 test/auc:0.7994261867501303
+epoch:494 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:495 train/loss:0.019986073
+epoch:495 val/auc:0.7043956043956044
+epoch:495 test/auc:0.8127282211789254
+epoch:495 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:496 train/loss:0.019352581
+epoch:496 val/auc:0.7067765567765568
+epoch:496 test/auc:0.8010780733785428
+epoch:496 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:497 train/loss:0.020554924
+epoch:497 val/auc:0.7010989010989012
+epoch:497 test/auc:0.7930794644409668
+epoch:497 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:498 train/loss:0.014651988
+epoch:498 val/auc:0.7175824175824176
+epoch:498 test/auc:0.7948182924708745
+epoch:498 test/auc_by_eval:0.8174230568596765
+Valid ratio: 1.0
+Task evaluated: 1/1
+Valid ratio: 1.0
+Task evaluated: 1/1
+epoch:499 train/loss:0.01748274
+epoch:499 val/auc:0.7106227106227107
+epoch:499 test/auc:0.8003825421665798
+epoch:499 test/auc_by_eval:0.8174230568596765
+FINAL	model_config:down_mlp2	metric:test_auc	dataset:bace	split_type:scaffold	batch_size:128	dropout_rate:0.1	encoder_lr:0.001	head_lr:0.004	exp_id:None	0.8174230568596765
+FINAL	model_config:down_mlp2	metric:max_valid_auc	dataset:bace	split_type:scaffold	batch_size:128	dropout_rate:0.1	encoder_lr:0.001	head_lr:0.004	exp_id:None	0.7542124542124542
+FINAL	model_config:down_mlp2	metric:max_test_auc	dataset:bace	split_type:scaffold	batch_size:128	dropout_rate:0.1	encoder_lr:0.001	head_lr:0.004	exp_id:None	0.8297687358720222
