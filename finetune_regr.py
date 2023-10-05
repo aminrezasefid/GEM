@@ -23,6 +23,8 @@ import argparse
 import numpy as np
 
 import paddle
+paddle.seed(0)
+
 import paddle.nn as nn
 import pgl
 
@@ -175,8 +177,8 @@ def main(args):
     ### load data    
     if args.task == 'data':
         print('Preprocessing data...')
-        pickfile="cached_data/lipo/lipo.pkl"
-        pickfile=None
+        pickfile="cached_data/esol/esol.pkl"
+        #pickfile=None
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
         transform_fn = DownstreamTransformFn(pos_file=pickfile,use_mmff=args.use_mmff)
         dataset.transform(transform_fn, num_workers=args.num_workers)

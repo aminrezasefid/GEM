@@ -23,6 +23,7 @@ import argparse
 import numpy as np
 
 import paddle
+paddle.seed(0)
 import paddle.nn as nn
 import pgl
 
