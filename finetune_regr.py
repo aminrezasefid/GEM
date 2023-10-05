@@ -23,7 +23,7 @@ import argparse
 import numpy as np
 
 import paddle
-#paddle.seed(0)
+paddle.seed(0)
 
 import paddle.nn as nn
 import pgl
@@ -53,8 +53,9 @@ def train(
     data_gen = train_dataset.get_data_loader(
             batch_size=args.batch_size, 
             num_workers=args.num_workers, 
-            shuffle=True,
+            shuffle=False,
             collate_fn=collate_fn)
+
     list_loss = []
     model.train()
     for atom_bond_graphs, bond_angle_graphs, labels in data_gen:
