@@ -32,7 +32,13 @@ class AnaResults:
         if not name in d:
             d[name] = []
         d[name].append(value)
-
+    def _put_in_file(self, d, prefix):
+        names = sorted(d.keys())
+        for name in names:
+            outs = [prefix] + list(name) + [str(np.mean(d[name])), str(np.std(d[name])), str(len(d[name]))]
+            out='\t'.join(outs)
+            with open("result.txt","a") as f:
+                f.write(out)
     def _print_dict(self, d, prefix):
         names = sorted(d.keys())
         for name in names:
@@ -48,8 +54,8 @@ class AnaResults:
             
     def Print(self):
         """tbd"""
-        self._print_dict(self.dict_result1, 'AnaResults1')
-        self._print_dict(self.dict_result2, 'AnaResults2')
+        self._put_in_file(self.dict_result1, 'AnaResults1')
+        self._put_in_file(self.dict_result2, 'AnaResults2')
 
 
 def main(args):

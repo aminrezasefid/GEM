@@ -23,7 +23,6 @@ import argparse
 import numpy as np
 import paddle.fluid as fluid
 import paddle
-paddle.set_flags({'FLAGS_cudnn_deterministic': True, 'FLAGS_cpu_determinitstic': True})
 paddle.seed(0)
 import random
 np.random.seed(42) 
