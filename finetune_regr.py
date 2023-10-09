@@ -21,10 +21,15 @@ import os
 from os.path import join, exists, basename
 import argparse
 import numpy as np
-
+import paddle.fluid as fluid
 import paddle
+paddle.set_flags({'FLAGS_cudnn_deterministic': True, 'FLAGS_cpu_determinitstic': True})
 paddle.seed(0)
-
+import random
+np.random.seed(42) 
+random.seed(42)
+fluid.default_startup_program().random_seed = 42
+fluid.default_main_program().random_seed = 42
 import paddle.nn as nn
 import pgl
 
