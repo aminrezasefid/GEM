@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="esol freesolv qm7 "
+datasets="freesolv "
 modes="rdkit geomol mmffless"
 epoch=100
 batch_size=128
