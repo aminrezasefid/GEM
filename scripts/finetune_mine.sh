@@ -1,12 +1,12 @@
 #!/bin/bash
-datasets="freesolv "
-modes="rdkit geomol mmffless"
+datasets="esol freesolv lipophilicity qm7"
+modes="rdkit "
 epoch=100
 batch_size=128
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
-        for num in $(seq 1 10); do
+        for num in $(seq 1 1); do
         {
           batch_size=128
           if [ $dataset = "bbbp" ] || [ $dataset = "bace" ]; then

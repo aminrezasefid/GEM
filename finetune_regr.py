@@ -257,7 +257,7 @@ def main(args):
             ('max_test_%s' % metric, np.min(list_test_metric))]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
-    #model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/epoch{best_epoch_id}/model.pdparams"))
+    model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/epoch{best_epoch_id}/model.pdparams"))
     collate_fn_test = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
