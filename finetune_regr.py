@@ -280,6 +280,9 @@ if __name__ == '__main__':
     parser.add_argument("--encoder_lr", type=float, default=0.001)
     parser.add_argument("--head_lr", type=float, default=0.001)
     parser.add_argument("--dropout_rate", type=float, default=0.2)
+    parser.add_argument("--mode",choices=['train','test'], type=float, default="train")
     args = parser.parse_args()
     print(args)
-    main(args)
+    if args.mode=="test":
+        test(args)
+    else: main(args)

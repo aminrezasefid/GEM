@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="esol freesolv lipophilicity bbbp bace"
+datasets="qm7"
 modes="rdkit geomol mmffless"
 epoch=100
 batch_size=128
