@@ -91,7 +91,11 @@ class DownstreamCollateFn(object):
         atom_bond_graph_list = []
         bond_angle_graph_list = []
         label_list = []
+        smiles_list=[]
+        atom_pos_list=[]
         for data in data_list:
+            smiles=data["smiles"]
+            atom_pos=data["atom_pos"]
             ab_g = pgl.Graph(
                     num_nodes=len(data[self.atom_names[0]]),
                     edges=data['edges'],
@@ -103,9 +107,10 @@ class DownstreamCollateFn(object):
                     node_feat={},
                     edge_feat={name: data[name].reshape([-1, 1]) for name in self.bond_angle_float_names})
             atom_bond_graph_list.append(ab_g)
+            smiles_list.append(smiles)
+            atom_pos_list.append(atom_pos)
             bond_angle_graph_list.append(ba_g)
-            if not self.is_inference:
-                label_list.append(data['label'])
+            label_list.append(data['label'])
 
         atom_bond_graph = pgl.Graph.batch(atom_bond_graph_list)
         bond_angle_graph = pgl.Graph.batch(bond_angle_graph_list)
@@ -114,7 +119,6 @@ class DownstreamCollateFn(object):
         self._flat_shapes(atom_bond_graph.edge_feat)
         self._flat_shapes(bond_angle_graph.node_feat)
         self._flat_shapes(bond_angle_graph.edge_feat)
-
         if not self.is_inference:
             if self.task_type == 'class':
                 labels = np.array(label_list)
@@ -126,5 +130,13 @@ class DownstreamCollateFn(object):
                 labels = np.array(label_list, 'float32')
                 return atom_bond_graph, bond_angle_graph, labels
         else:
-            return atom_bond_graph, bond_angle_graph
+            if self.task_type == 'class':
+                labels = np.array(label_list)
+                # label: -1 -> 0, 1 -> 1
+                labels = ((labels + 1.0) / 2)
+                valids = (labels != 0.5)
+                return [atom_bond_graph, bond_angle_graph, valids, labels,smiles_list,atom_pos_list]
+            else:
+                labels = np.array(label_list, 'float32')
+                return atom_bond_graph, bond_angle_graph, labels,smiles_list,atom_pos_list
 

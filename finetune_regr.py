@@ -250,17 +250,62 @@ def main(args):
         'head_lr': args.head_lr,
     }
     best_epoch_id = np.argmin(list_val_metric)
+    metric2=metric
     for metric, value in [
             ('test_%s' % metric, list_test_metric[best_epoch_id]),
             ('max_valid_%s' % metric, np.min(list_val_metric)),
             ('max_test_%s' % metric, np.min(list_test_metric))]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
-
-
+    #model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/epoch{best_epoch_id}/model.pdparams"))
+    collate_fn_test = DownstreamCollateFn(
+            atom_names=compound_encoder_config['atom_names'], 
+            bond_names=compound_encoder_config['bond_names'],
+            bond_float_names=compound_encoder_config['bond_float_names'],
+            bond_angle_float_names=compound_encoder_config['bond_angle_float_names'],
+            task_type=task_type,is_inference=True)
+    test(args, model, label_mean, label_std, 
+                test_dataset, collate_fn_test, metric2)
+def test(args, model, label_mean, label_std, 
+                test_dataset, collate_fn, metric):
+    data_gen = test_dataset.get_data_loader(
+            batch_size=args.batch_size, 
+            num_workers=args.num_workers, 
+            shuffle=False,
+            collate_fn=collate_fn)
+    total_pred = []
+    total_label = []
+    smiles_list=[]
+    atom_poses_list=[]
+    model.eval()
+    for atom_bond_graphs, bond_angle_graphs, labels,smiles,atom_poses in data_gen:
+        atom_bond_graphs = atom_bond_graphs.tensor()
+        bond_angle_graphs = bond_angle_graphs.tensor()
+        labels = paddle.to_tensor(labels, 'float32')
+        scaled_preds = model(atom_bond_graphs, bond_angle_graphs)
+        preds = scaled_preds.numpy() * label_std + label_mean
+        atom_poses_list.extend(atom_poses)
+        smiles_list.extend(smiles)
+        total_pred.append(preds)
+        total_label.append(labels.numpy())
+    total_pred = np.concatenate(total_pred, 0)
+    total_label = np.concatenate(total_label, 0)
+    final_dic={"smiles":[],"pred":[],"label":[],"loss":[],"pos":[]}
+    diff=np.abs(total_label- total_pred)
+    for i in range(total_label.shape[0]):
+        final_dic["smiles"].append(smiles_list[i])
+        final_dic["pred"].append(total_pred[i].item())
+        final_dic["label"].append(total_label[i].item())
+        final_dic["loss"].append(diff[i].item())
+        final_dic["pos"].append(atom_poses_list[i])
+    import pickle
+    with open(f'./log/{args.dataset_name}.pickle', 'wb') as handle:
+        pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    
+    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--task", choices=['train', 'data'], default='train')
+    parser.add_argument("--task", choices=['train', 'data','test'], default='train')
     parser.add_argument("--use_mmff",action='store_true')
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--num_workers", type=int, default=4)
@@ -280,9 +325,8 @@ if __name__ == '__main__':
     parser.add_argument("--encoder_lr", type=float, default=0.001)
     parser.add_argument("--head_lr", type=float, default=0.001)
     parser.add_argument("--dropout_rate", type=float, default=0.2)
-    parser.add_argument("--mode",choices=['train','test'], type=str, default="train")
     args = parser.parse_args()
     print(args)
-    if args.mode=="test":
+    if args.task=="test":
         test(args)
     else: main(args)
