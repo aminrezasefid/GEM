@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="qm7 "
+datasets="esol freesolv qm7 "
 modes="rdkit geomol mmffless"
 epoch=100
 batch_size=128
@@ -10,7 +10,9 @@ for dataset in $datasets; do
         {
           batch_size=128
           if [ $dataset = "bbbp" ] || [ $dataset = "bace" ]; then
-            batch_size=32
+            model="class"
+          elif [ "$dataset" == "freesolv" ]; then
+            batch_size=30
             model="class"
           else
             model="regr"
