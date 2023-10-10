@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="qm7"
+datasets="qm7 "
 modes="rdkit geomol mmffless"
 epoch=100
 batch_size=128
