@@ -13,7 +13,7 @@ for dataset in $datasets; do
             model="class"
           elif [ "$dataset" == "freesolv" ]; then
             batch_size=30
-            model="class"
+            model="regr"
           else
             model="regr"
           fi
