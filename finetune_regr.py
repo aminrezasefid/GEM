@@ -185,7 +185,7 @@ def main(args):
         pickfile="cached_data/qm7/qm7.pkl"
         pickfile=None
         dataset = get_dataset(args.dataset_name, args.data_path, task_names)
-        transform_fn = DownstreamTransformFn(pos_file=pickfile,use_mmff=args.use_mmff)
+        transform_fn = DownstreamTransformFn(pos_file=pickfile,mode=args.mode)
         dataset.transform(transform_fn, num_workers=args.num_workers)
         dataset.save_data(args.cached_data_path)
         return
@@ -306,7 +306,7 @@ def test(args, model, label_mean, label_std,
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--task", choices=['train', 'data','test'], default='train')
-    parser.add_argument("--use_mmff",action='store_true')
+    parser.add_argument("--mode",choices=['rdkit', 'mmffless','geomol','graph'],default='rdkit')
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--num_workers", type=int, default=4)
     parser.add_argument("--max_epoch", type=int, default=100)

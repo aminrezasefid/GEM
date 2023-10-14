@@ -26,9 +26,9 @@ from pahelix.utils.compound_tools import mol_to_geognn_graph_data_MMFF3d
 
 class DownstreamTransformFn(object):
     """Gen features for downstream model"""
-    def __init__(self, is_inference=False,pos_file=None,use_mmff=True):
+    def __init__(self, is_inference=False,pos_file=None,mode="rdkit"):
         self.pos_dic=None
-        self.use_mmff=use_mmff
+        self.mode=mode
         if pos_file is not None:
             f=open(pos_file,"rb")
             self.pos_dic=pickle.load(f)
@@ -48,7 +48,7 @@ class DownstreamTransformFn(object):
         mol = AllChem.MolFromSmiles(smiles)
         if mol is None:
             return None
-        data = mol_to_geognn_graph_data_MMFF3d(mol,smiles,self.use_mmff,self.pos_dic)
+        data = mol_to_geognn_graph_data_MMFF3d(mol,smiles,self.mode,self.pos_dic)
         if not self.is_inference:
             data['label'] = raw_data['label'].reshape([-1])
         data['smiles'] = smiles
