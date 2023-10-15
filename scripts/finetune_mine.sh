@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="esol freesolv lipophilicity bace bbbp "
+datasets="qm7 "
 modes="graph"
 epoch=100
 batch_size=128
