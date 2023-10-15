@@ -1,6 +1,6 @@
 #!/bin/bash
-datasets="freesolv "
-modes="rdkit geomol mmffless"
+datasets="esol freesolv lipophilicity bace bbbp"
+modes="graph"
 epoch=100
 batch_size=128
 source activate gem
