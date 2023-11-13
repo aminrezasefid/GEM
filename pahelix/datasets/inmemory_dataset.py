@@ -93,7 +93,7 @@ class InMemoryDataset(object):
             data_list += load_npz_to_data_list(f)
         return data_list
 
-    def _save_npz_data(self, data_list, data_path, max_num_per_file=10000):
+    def _save_npz_data(self, data_list, data_path, max_num_per_file=1000000):
         if not exists(data_path):
             os.makedirs(data_path)
         n = len(data_list)
