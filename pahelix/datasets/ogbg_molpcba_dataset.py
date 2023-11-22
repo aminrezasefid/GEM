@@ -35,7 +35,7 @@ __all__ = [
 
 def get_default_ogbg_molpcba_task_names(data_path):
     """Get that default ogbg_molpcba task names and return class label"""
-    input_df = pd.read_csv(os.path.join(data_path, "pcba.csv"), sep=',')
+    input_df = pd.read_csv(os.path.join(data_path,"raw", "pcba.csv"), sep=',')
     outcomes = input_df.set_index("smiles").drop(["mol_id"], axis=1)
     return list(outcomes.columns)
 
@@ -45,7 +45,7 @@ def load_ogbg_molpcba_dataset(data_path, task_names=None):
     if task_names is None:
         task_names = get_default_ogbg_molpcba_task_names(data_path)
     
-    input_df = pd.read_csv(os.path.join(data_path, "pcba.csv"), sep=',')
+    input_df = pd.read_csv(os.path.join(data_path,"raw", "pcba.csv"), sep=',')
     smiles_list = input_df['smiles']
     labels = input_df[task_names]
     labels = labels.replace(0, -1)  # convert 0 to -1
