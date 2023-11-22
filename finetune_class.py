@@ -247,7 +247,7 @@ if __name__ == '__main__':
     parser.add_argument("--max_epoch", type=int, default=100)
     parser.add_argument("--dataset_name", 
             choices=['bace', 'bbbp', 'clintox', 'hiv', 
-                'muv', 'sider', 'tox21', 'toxcast'])
+                'muv', 'sider', 'tox21', 'toxcast','pcba'])
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--cached_data_path", type=str, default=None)
     parser.add_argument("--split_type", 
