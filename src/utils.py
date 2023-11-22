@@ -77,7 +77,7 @@ def get_downstream_task_names(dataset_name, data_path):
     elif dataset_name == 'qm9_gdb':
         return get_default_qm9_gdb_task_names()  
     elif dataset_name =='pcba':
-        return get_default_ogbg_molpcba_task_names()
+        return get_default_ogbg_molpcba_task_names(data_path)
     else:
         raise ValueError('%s not supported' % dataset_name)
 
