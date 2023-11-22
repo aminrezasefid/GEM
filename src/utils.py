@@ -76,6 +76,8 @@ def get_downstream_task_names(dataset_name, data_path):
         return get_default_qm9_task_names()  
     elif dataset_name == 'qm9_gdb':
         return get_default_qm9_gdb_task_names()  
+    elif dataset_name =='pcba':
+        return get_default_ogbg_molpcba_task_names()
     else:
         raise ValueError('%s not supported' % dataset_name)
 
@@ -114,6 +116,8 @@ def get_dataset(dataset_name, data_path, task_names):
         dataset = load_qm9_dataset(data_path, task_names)
     elif dataset_name == 'qm9_gdb':
         dataset = load_qm9_gdb_dataset(data_path, task_names)
+    elif dataset_name == 'pcba':
+        dataset = load_ogbg_molpcba_dataset(data_path,task_names)
     else:
         raise ValueError('%s not supported' % dataset_name)
 
