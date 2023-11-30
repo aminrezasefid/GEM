@@ -99,7 +99,7 @@ class InMemoryDataset(object):
         n = len(data_list)
         for i in range(int((n - 1) / max_num_per_file) + 1):
             filename = 'part-%06d.npz' % i
-            sub_data_list = self.data_list[i * max_num_per_file: (i + 1) * max_num_per_file]
+            sub_data_list = data_list[i * max_num_per_file: (i + 1) * max_num_per_file]
             save_data_list_to_npz(sub_data_list, join(data_path, filename))
 
     def save_data(self, data_path):
