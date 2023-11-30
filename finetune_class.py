@@ -179,7 +179,7 @@ def main(args):
             dataset = InMemoryDataset(npz_data_path=args.cached_data_path)
 
     splitter = create_splitter(args.split_type)
-    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.8,0.1,0.1)
+    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.9,0.1,0.0)
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train pos/neg ratio %s/%s' % get_pos_neg_ratio(train_dataset))
