@@ -205,10 +205,10 @@ def main(args):
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train min/max/mean %s/%s/%s' % get_label_stat(train_dataset))
     print('Valid min/max/mean %s/%s/%s' % get_label_stat(valid_dataset))
-    print('Test min/max/mean %s/%s/%s' % get_label_stat(test_dataset))
 
     ### start train
     list_val_metric, list_test_metric = [], []
+    best_metric=100
     collate_fn = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -223,21 +223,18 @@ def main(args):
         val_metric = evaluate(
                 args, model, label_mean, label_std, 
                 valid_dataset, collate_fn, metric)
-        test_metric = evaluate(
-                args, model, label_mean, label_std, 
-                test_dataset, collate_fn, metric)
 
         list_val_metric.append(val_metric)
-        list_test_metric.append(test_metric)
-        test_metric_by_eval = list_test_metric[np.argmin(list_val_metric)]
+        
+
         print("epoch:%s train/loss:%s" % (epoch_id, train_loss))
         print("epoch:%s val/%s:%s" % (epoch_id, metric, val_metric))
-        print("epoch:%s test/%s:%s" % (epoch_id, metric, test_metric))
-        print("epoch:%s test/%s_by_eval:%s" % (epoch_id, metric, test_metric_by_eval))
-        paddle.save(compound_encoder.state_dict(), 
-                '%s/epoch%d/compound_encoder.pdparams' % (args.model_dir, epoch_id))
-        paddle.save(model.state_dict(), 
-                '%s/epoch%d/model.pdparams' % (args.model_dir, epoch_id))
+        if val_metric<best_metric:
+            best_metric=val_metric
+            paddle.save(compound_encoder.state_dict(), 
+                    '%s/%s/compound_encoder.pdparams' % (args.model_dir, "best_model"))
+            paddle.save(model.state_dict(), 
+                    '%s/%s/model.pdparams' % (args.model_dir, "best_model"))
 
     outs = {
         'model_config': basename(args.model_config).replace('.json', ''),
@@ -252,12 +249,10 @@ def main(args):
     best_epoch_id = np.argmin(list_val_metric)
     metric2=metric
     for metric, value in [
-            ('test_%s' % metric, list_test_metric[best_epoch_id]),
-            ('max_valid_%s' % metric, np.min(list_val_metric)),
-            ('max_test_%s' % metric, np.min(list_test_metric))]:
+            ('max_valid_%s' % metric, np.min(list_val_metric)),]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
-    model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/epoch{best_epoch_id}/model.pdparams"))
+    model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/best_model/model.pdparams"))
     collate_fn_test = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -265,7 +260,7 @@ def main(args):
             bond_angle_float_names=compound_encoder_config['bond_angle_float_names'],
             task_type=task_type,is_inference=True)
     test(args, model, label_mean, label_std, 
-                test_dataset, collate_fn_test, metric2)
+                valid_dataset, collate_fn_test, metric2)
 def test(args, model, label_mean, label_std, 
                 test_dataset, collate_fn, metric):
     data_gen = test_dataset.get_data_loader(
@@ -301,6 +296,9 @@ def test(args, model, label_mean, label_std,
     import pickle
     with open(f'./log/{args.dataset_name}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    import pandas as pd
+    df=pd.DataFrame.from_dict(final_dic)
+    df.to_csv(f'./log/{args.dataset_name}.csv',index=False)
     
     
 if __name__ == '__main__':

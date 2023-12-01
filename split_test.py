@@ -52,7 +52,7 @@ def main(args):
     splitter = create_splitter(args.split_type)
     train_dataset, _, test_dataset = splitter.split(dataset,0.9,0.0,0.1)
     dataset._save_npz_data(test_dataset, args.cached_data_path+"/TestDataset")
-    dataset._save_npz_data(train_dataset, args.cached_data_path)
+    dataset._save_npz_data(train_dataset, args.cached_data_path+"/TrainValid")
     print(f"{args.dataset_name}:Test dataset splitted.")
 
 if __name__ == '__main__':

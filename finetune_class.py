@@ -184,7 +184,6 @@ def main(args):
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train pos/neg ratio %s/%s' % get_pos_neg_ratio(train_dataset))
     print('Valid pos/neg ratio %s/%s' % get_pos_neg_ratio(valid_dataset))
-    print('Test pos/neg ratio %s/%s' % get_pos_neg_ratio(test_dataset))
 
     ### start train
     # Load the train function and calculate the train loss in each epoch.
@@ -193,6 +192,7 @@ def main(args):
     # Then we will calculate the train loss ,valid auc,test auc and print them.
     # Finally we save it to the model according to the dataset.
     list_val_auc, list_test_auc = [], []
+    best_metri=0
     collate_fn = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -202,19 +202,17 @@ def main(args):
     for epoch_id in range(args.max_epoch):
         train_loss = train(args, model, train_dataset, collate_fn, criterion, encoder_opt, head_opt)
         val_auc = evaluate(args, model, valid_dataset, collate_fn)
-        test_auc = evaluate(args, model, test_dataset, collate_fn)
 
         list_val_auc.append(val_auc)
-        list_test_auc.append(test_auc)
-        test_auc_by_eval = list_test_auc[np.argmax(list_val_auc)]
         print("epoch:%s train/loss:%s" % (epoch_id, train_loss))
         print("epoch:%s val/auc:%s" % (epoch_id, val_auc))
-        print("epoch:%s test/auc:%s" % (epoch_id, test_auc))
-        print("epoch:%s test/auc_by_eval:%s" % (epoch_id, test_auc_by_eval))
-        paddle.save(compound_encoder.state_dict(), 
-                '%s/epoch%d/compound_encoder.pdparams' % (args.model_dir, epoch_id))
-        paddle.save(model.state_dict(), 
-                '%s/epoch%d/model.pdparams' % (args.model_dir, epoch_id))
+
+        if val_auc>best_metric:
+            best_metric=val_auc
+            paddle.save(compound_encoder.state_dict(), 
+                    '%s/%s/compound_encoder.pdparams' % (args.model_dir, "best_model"))
+            paddle.save(model.state_dict(), 
+                    '%s/%s/model.pdparams' % (args.model_dir, "best_model"))
 
     outs = {
         'model_config': basename(args.model_config).replace('.json', ''),
@@ -229,12 +227,49 @@ def main(args):
     }
     offset = 20
     best_epoch_id = np.argmax(list_val_auc)
+    metric2=metric
     for metric, value in [
-            ('test_auc', list_test_auc[best_epoch_id]),
             ('max_valid_auc', np.max(list_val_auc)),
-            ('max_test_auc', np.max(list_test_auc))]:
+            ]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
+    model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/best_model/model.pdparams"))
+    collate_fn_test = DownstreamCollateFn(
+            atom_names=compound_encoder_config['atom_names'], 
+            bond_names=compound_encoder_config['bond_names'],
+            bond_float_names=compound_encoder_config['bond_float_names'],
+            bond_angle_float_names=compound_encoder_config['bond_angle_float_names'],
+            task_type=task_type,is_inference=True)
+    test(args, model, 
+                valid_dataset, collate_fn_test)
+def test(args, model, 
+                test_dataset, collate_fn):
+    data_gen = test_dataset.get_data_loader(
+            batch_size=args.batch_size, 
+            num_workers=args.num_workers, 
+            shuffle=False,
+            collate_fn=collate_fn)
+    total_pred = []
+    total_label = []
+    total_valid = []
+    smiles_list=[]
+    atom_poses_list=[]
+    model.eval()
+    for atom_bond_graphs, bond_angle_graphs, valids, labels,smiles,atom_poses in data_gen:
+        atom_bond_graphs = atom_bond_graphs.tensor()
+        bond_angle_graphs = bond_angle_graphs.tensor()
+        labels = paddle.to_tensor(labels, 'float32')
+        valids = paddle.to_tensor(valids, 'float32')
+        preds = model(atom_bond_graphs, bond_angle_graphs)
+        total_pred.append(preds.numpy())
+        total_valid.append(valids.numpy())
+        total_label.append(labels.numpy())
+    total_pred = np.concatenate(total_pred, 0)
+    total_label = np.concatenate(total_label, 0)
+    total_valid = np.concatenate(total_valid, 0)
+    return calc_rocauc_score(total_label, total_pred, total_valid)
+
+
 
 
 if __name__ == '__main__':
