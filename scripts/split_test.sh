@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="esol freesolv "
+datasets="esol freesolv lipophilicity qm7 qm8 qm9 bbbp bace clintox tox21 toxcast sider hiv pcba muv"
 modes="rdkit "
 source activate gem
 for dataset in $datasets; do
