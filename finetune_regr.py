@@ -208,7 +208,7 @@ def main(args):
 
     ### start train
     list_val_metric, list_test_metric = [], []
-    best_metric=100
+    best_metric=100000
     collate_fn = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -252,7 +252,7 @@ def main(args):
             ('max_valid_%s' % metric, np.min(list_val_metric)),]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
-    model.set_state_dict(paddle.load(f"./{args.model_dir}/{args.dataset_name}/best_model/model.pdparams"))
+    model.set_state_dict(paddle.load(f"{args.model_dir}/{args.dataset_name}/best_model/model.pdparams"))
     collate_fn_test = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -300,7 +300,7 @@ def test(args, model, label_mean, label_std,
             final_dic["lbl_"+task_names[j]].append(total_label[i][j].item())
             final_dic["dif_"+task_names[j]].append(diff[i][j].item())
     import pickle
-    with open(f'./{args.model_dir}/{args.dataset_name}.pickle', 'wb') as handle:
+    with open(f'{args.model_dir}/{args.dataset_name}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
     import pandas as pd
     del final_dic["pos"]
