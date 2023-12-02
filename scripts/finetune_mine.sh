@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="esol freesolv lipophilicity qm7 qm8 qm9 "
+datasets="qm7 qm8 qm9 "
 modes="rdkit "
 epoch=100
 batch_size=64
