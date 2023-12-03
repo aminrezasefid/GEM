@@ -57,7 +57,7 @@ def train(
     data_gen = train_dataset.get_data_loader(
             batch_size=args.batch_size, 
             num_workers=args.num_workers, 
-            shuffle=False,
+            shuffle=True,
             collate_fn=collate_fn)
 
     list_loss = []

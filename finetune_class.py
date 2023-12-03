@@ -192,7 +192,7 @@ def main(args):
     # Then we will calculate the train loss ,valid auc,test auc and print them.
     # Finally we save it to the model according to the dataset.
     list_val_auc, list_test_auc = [], []
-    best_metri=0
+    best_metric=0
     collate_fn = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
@@ -210,10 +210,9 @@ def main(args):
         if val_auc>best_metric:
             best_metric=val_auc
             paddle.save(compound_encoder.state_dict(), 
-                    '%s/%s/compound_encoder.pdparams' % (args.model_dir, "best_model"))
+                    '%s/%s/%s/compound_encoder.pdparams' % (args.model_dir,args.dataset_name, "best_model"))
             paddle.save(model.state_dict(), 
-                    '%s/%s/model.pdparams' % (args.model_dir, "best_model"))
-
+                    '%s/%s/%s/model.pdparams' % (args.model_dir,args.dataset_name, "best_model"))
     outs = {
         'model_config': basename(args.model_config).replace('.json', ''),
         'metric': '',
@@ -227,19 +226,18 @@ def main(args):
     }
     offset = 20
     best_epoch_id = np.argmax(list_val_auc)
-    metric2=metric
     for metric, value in [
             ('max_valid_auc', np.max(list_val_auc)),
             ]:
         outs['metric'] = metric
         print('\t'.join(['FINAL'] + ["%s:%s" % (k, outs[k]) for k in outs] + [str(value)]))
-    model.set_state_dict(paddle.load(f"./output/chemrl_gem/finetune/{args.dataset_name}/best_model/model.pdparams"))
+    model.set_state_dict(paddle.load(f"{args.model_dir}/{args.dataset_name}/best_model/model.pdparams"))
     collate_fn_test = DownstreamCollateFn(
             atom_names=compound_encoder_config['atom_names'], 
             bond_names=compound_encoder_config['bond_names'],
             bond_float_names=compound_encoder_config['bond_float_names'],
             bond_angle_float_names=compound_encoder_config['bond_angle_float_names'],
-            task_type=task_type,is_inference=True)
+            task_type='class',is_inference=True)
     test(args, model, 
                 valid_dataset, collate_fn_test)
 def test(args, model, 
@@ -261,23 +259,52 @@ def test(args, model,
         labels = paddle.to_tensor(labels, 'float32')
         valids = paddle.to_tensor(valids, 'float32')
         preds = model(atom_bond_graphs, bond_angle_graphs)
+        atom_poses_list.extend(atom_poses)
+        smiles_list.extend(smiles)
         total_pred.append(preds.numpy())
         total_valid.append(valids.numpy())
         total_label.append(labels.numpy())
     total_pred = np.concatenate(total_pred, 0)
     total_label = np.concatenate(total_label, 0)
     total_valid = np.concatenate(total_valid, 0)
-    return calc_rocauc_score(total_label, total_pred, total_valid)
+    final_dic={"smiles":[],"pos":[]}
+    task_names = get_downstream_task_names(args.dataset_name, args.data_path)
+    for task_name in task_names:
+        final_dic["prd_"+task_name]=[]
+        final_dic["lbl_"+task_name]=[]
+        final_dic["dif_"+task_name]=[]
+    diff=np.abs(total_label- total_pred)
+    for i in range(total_label.shape[0]):
+        final_dic["smiles"].append(smiles_list[i])
+        final_dic["pos"].append(atom_poses_list[i])
+        for j in range(len(total_label[i])):
+            valid=total_valid[i][j].item()
+            if valid:
+                final_dic["prd_"+task_names[j]].append(total_pred[i][j].item())
+                final_dic["lbl_"+task_names[j]].append(total_label[i][j].item())
+                final_dic["dif_"+task_names[j]].append(diff[i][j].item())
+            else:
+                final_dic["prd_"+task_names[j]].append(None)
+                final_dic["lbl_"+task_names[j]].append(None)
+                final_dic["dif_"+task_names[j]].append(None)
+    import pickle
+    with open(f'{args.model_dir}/{args.dataset_name}.pickle', 'wb') as handle:
+        pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    import pandas as pd
+    del final_dic["pos"]
+    df=pd.DataFrame.from_dict(final_dic)
+    df.to_csv(f'./{args.model_dir}/{args.dataset_name}.csv',index=False)
+    
 
 
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--task", choices=['train', 'data'], default='train')
+    parser.add_argument("--task", choices=['train', 'data','test'], default='train')
     parser.add_argument("--mode",choices=['rdkit', 'mmffless','geomol','graph'],default='rdkit')
-
     parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--seed", type=int)
     parser.add_argument("--num_workers", type=int, default=2)
     parser.add_argument("--max_epoch", type=int, default=100)
     parser.add_argument("--dataset_name", 
@@ -297,5 +324,7 @@ if __name__ == '__main__':
     parser.add_argument("--dropout_rate", type=float, default=0.2)
     parser.add_argument("--exp_id", type=int, help='used for identification only')
     args = parser.parse_args()
-    
-    main(args)
+    print(args)
+    if args.task=="test":
+        test(args)
+    else: main(args)
