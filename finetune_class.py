@@ -273,7 +273,9 @@ def test(args, model,
         final_dic["prd_"+task_name]=[]
         final_dic["lbl_"+task_name]=[]
         final_dic["dif_"+task_name]=[]
+        final_dic["dif_round_"+task_name]=[]
     diff=np.abs(total_label- total_pred)
+    diff_round=np.abs(total_label- total_pred.round())
     for i in range(total_label.shape[0]):
         final_dic["smiles"].append(smiles_list[i])
         final_dic["pos"].append(atom_poses_list[i])
@@ -283,10 +285,12 @@ def test(args, model,
                 final_dic["prd_"+task_names[j]].append(total_pred[i][j].item())
                 final_dic["lbl_"+task_names[j]].append(total_label[i][j].item())
                 final_dic["dif_"+task_names[j]].append(diff[i][j].item())
+                final_dic["dif_round_"+task_names[j]].append(diff_round[i][j].item())
             else:
                 final_dic["prd_"+task_names[j]].append(None)
                 final_dic["lbl_"+task_names[j]].append(None)
                 final_dic["dif_"+task_names[j]].append(None)
+                final_dic["dif_round_"+task_names[j]].append(None)
     import pickle
     with open(f'{args.model_dir}/{args.dataset_name}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
