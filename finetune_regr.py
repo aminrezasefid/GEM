@@ -300,12 +300,12 @@ def test(args, model, label_mean, label_std,
             final_dic["lbl_"+task_names[j]].append(total_label[i][j].item())
             final_dic["dif_"+task_names[j]].append(diff[i][j].item())
     import pickle
-    with open(f'{args.model_dir}/{args.dataset_name}.pickle', 'wb') as handle:
+    with open(f'./{args.model_dir}/{args.dataset_name}-{args.mode}-seed={args.seed}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
     import pandas as pd
     del final_dic["pos"]
     df=pd.DataFrame.from_dict(final_dic)
-    df.to_csv(f'./{args.model_dir}/{args.dataset_name}.csv',index=False)
+    df.to_csv(f'./{args.model_dir}/{args.dataset_name}-{args.mode}-seed={args.seed}.csv',index=False)
     
     
 if __name__ == '__main__':
