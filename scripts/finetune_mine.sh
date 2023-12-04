@@ -1,8 +1,8 @@
 #!/bin/bash
-datasets="bbbp bace "
+datasets="pcba "
 modes="rdkit "
 epoch=100
-batch_size=16
+batch_size=256
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
