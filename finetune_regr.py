@@ -197,7 +197,7 @@ def main(args):
             dataset.transform(transform_fn, num_workers=args.num_workers)
         else:
             print('Read preprocessing data...')
-            train_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TraintDataset")
+            train_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TrainDataset")
             valid_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/ValidDataset")
             test_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TestDataset")
 
