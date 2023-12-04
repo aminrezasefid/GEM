@@ -1,7 +1,7 @@
 #!/bin/bash
-datasets="qm7 qm8 qm9 "
+datasets="bace bbbp tox21 toxcast clinttox sider hiv muv pcba "
 modes="rdkit "
-epoch=100
+epoch=1
 batch_size=64
 source activate gem
 for dataset in $datasets; do
@@ -10,7 +10,7 @@ for dataset in $datasets; do
         {
           python finetune_regr.py \
                   --batch_size=$batch_size --max_epoch=$epoch --dataset_name=$dataset \
-                  --split_type=scaffold --data_path="./chemrl_downstream_datasets/$dataset" \
+                  --split_type=scaffold --data_path="./Raw_MoleculeNet/$dataset" \
                   --seed=$num \
                   --cached_data_path="./Pre-Processed_TestSplit_MoleculeNet/$dataset/$mode/TrainValid/" --compound_encoder_config=model_configs/geognn_l8.json \
                   --model_config=model_configs/down_mlp2.json --init_model="./pretrain_models-chemrl_gem/regr.pdparams" \
