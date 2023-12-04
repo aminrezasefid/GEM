@@ -6,9 +6,9 @@ batch_size=64
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
-        for num in $(seq 1 3); do
+        for num in $(seq 1 1); do
         {
-          python finetune_regr.py \
+          python finetune_class.py \
                   --batch_size=$batch_size --max_epoch=$epoch --dataset_name=$dataset \
                   --split_type=scaffold --data_path="./Raw_MoleculeNet/$dataset" \
                   --seed=$num \
