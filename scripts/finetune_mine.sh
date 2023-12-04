@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="muv "
+datasets="tox21 toxcast clintox sider hiv "
 modes="rdkit "
 epoch=100
 batch_size=16
