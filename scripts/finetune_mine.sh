@@ -1,12 +1,12 @@
 #!/bin/bash
-datasets="bace bbbp tox21 toxcast clintox sider hiv muv pcba "
+datasets="bace bbbp tox21 toxcast clintox sider hiv"
 modes="rdkit "
-epoch=1
-batch_size=64
+epoch=100
+batch_size=16
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
-        for num in $(seq 1 1); do
+        for num in $(seq 1 3); do
         {
           python finetune_class.py \
                   --batch_size=$batch_size --max_epoch=$epoch --dataset_name=$dataset \
