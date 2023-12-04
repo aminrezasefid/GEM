@@ -1,5 +1,5 @@
 #!/bin/bash
-datasets="bbbp bace "
+datasets="tox21 toxcast clintox sider hiv "
 modes="rdkit "
 epoch=100
 batch_size=16
