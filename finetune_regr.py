@@ -197,10 +197,12 @@ def main(args):
             dataset.transform(transform_fn, num_workers=args.num_workers)
         else:
             print('Read preprocessing data...')
-            dataset = InMemoryDataset(npz_data_path=args.cached_data_path)
+            train_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TraintDataset")
+            valid_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/ValidDataset")
+            test_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TestDataset")
 
-    splitter = create_splitter(args.split_type)
-    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.9,0.1,0.0)
+    #splitter = create_splitter(args.split_type)
+    #train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.9,0.1,0.0)
     print("Train/Valid/Test num: %s/%s/%s" % (
             len(train_dataset), len(valid_dataset), len(test_dataset)))
     print('Train min/max/mean %s/%s/%s' % get_label_stat(train_dataset))
