@@ -50,9 +50,10 @@ def main(args):
             dataset = InMemoryDataset(npz_data_path=args.cached_data_path)
 
     splitter = create_splitter(args.split_type)
-    train_dataset, _, test_dataset = splitter.split(dataset,0.9,0.0,0.1)
+    train_dataset, valid_dataset, test_dataset = splitter.split(dataset,0.8,0.1,0.1)
     dataset._save_npz_data(test_dataset, args.cached_data_path+"/TestDataset")
-    dataset._save_npz_data(train_dataset, args.cached_data_path+"/TrainValid")
+    dataset._save_npz_data(train_dataset, args.cached_data_path+"/TrainDataset")
+    dataset._save_npz_data(valid_dataset, args.cached_data_path+"/ValidDataset")
     print(f"{args.dataset_name}:Test dataset splitted.")
 
 if __name__ == '__main__':
