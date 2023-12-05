@@ -1,8 +1,8 @@
 #!/bin/bash
-datasets="pcba "
+datasets="muv "
 modes="rdkit "
 epoch=100
-batch_size=256
+batch_size=128
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
