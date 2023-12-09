@@ -29,11 +29,11 @@ class DownstreamModel(nn.Layer):
     Docstring for DownstreamModel,it is an supervised 
     GNN model which predicts the tasks shown in num_tasks and so on.
     """
-    def __init__(self, model_config, compound_encoder):
+    def __init__(self, model_config, compound_encoder,featurize=False):
         super(DownstreamModel, self).__init__()
         self.task_type = model_config['task_type']
         self.num_tasks = model_config['num_tasks']
-
+        self.featurize=featurize
         self.compound_encoder = compound_encoder
         self.norm = nn.LayerNorm(compound_encoder.graph_dim)
         self.mlp = MLP(
@@ -55,6 +55,8 @@ class DownstreamModel(nn.Layer):
         """
         node_repr, edge_repr, graph_repr = self.compound_encoder(atom_bond_graphs, bond_angle_graphs)
         graph_repr = self.norm(graph_repr)
+        if self.featurize:
+            return graph_repr
         pred = self.mlp(graph_repr)
         if self.task_type == 'class':
             pred = self.out_act(pred)
