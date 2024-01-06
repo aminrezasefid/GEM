@@ -62,14 +62,15 @@ def train(
 
     list_loss = []
     model.train()
-    for atom_bond_graphs, bond_angle_graphs, labels in data_gen:
+    for atom_bond_graphs, bond_angle_graphs, labels,rdkit_features in data_gen:
         if len(labels) < args.batch_size * 0.5:
             continue
         atom_bond_graphs = atom_bond_graphs.tensor()
         bond_angle_graphs = bond_angle_graphs.tensor()
+        rdkit_features = rdkit_features.tensor()
         scaled_labels = (labels - label_mean) / (label_std + 1e-5)
         scaled_labels = paddle.to_tensor(scaled_labels, 'float32')
-        preds = model(atom_bond_graphs, bond_angle_graphs)
+        preds = model(atom_bond_graphs, bond_angle_graphs,rdkit_features)
         loss = criterion(preds, scaled_labels)
         loss.backward()
         encoder_opt.step()

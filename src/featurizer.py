@@ -22,13 +22,14 @@ import pgl
 from rdkit.Chem import AllChem
 import pickle
 from pahelix.utils.compound_tools import mol_to_geognn_graph_data_MMFF3d
-
+from descriptastorus.descriptors import rdNormalizedDescriptors
 
 class DownstreamTransformFn(object):
     """Gen features for downstream model"""
     def __init__(self, is_inference=False,pos_file=None,mode="rdkit"):
         self.pos_dic=None
         self.mode=mode
+        self.generator=rdNormalizedDescriptors.RDKit2DNormalized()
         if pos_file is not None:
             f=open(pos_file,"rb")
             self.pos_dic=pickle.load(f)
@@ -52,6 +53,9 @@ class DownstreamTransformFn(object):
         if not self.is_inference:
             data['label'] = raw_data['label'].reshape([-1])
         data['smiles'] = smiles
+        
+        features = self.generator.process(smiles)
+        data['rdkit_features']=features[1:]
         return data
 
 
@@ -108,6 +112,7 @@ class DownstreamCollateFn(object):
                     edge_feat={name: data[name].reshape([-1, 1]) for name in self.bond_angle_float_names})
             atom_bond_graph_list.append(ab_g)
             smiles_list.append(smiles)
+            rdkit_features_list.append(data["rdkit_features"])
             atom_pos_list.append(atom_pos)
             bond_angle_graph_list.append(ba_g)
             label_list.append(data['label'])
@@ -125,18 +130,18 @@ class DownstreamCollateFn(object):
                 # label: -1 -> 0, 1 -> 1
                 labels = ((labels + 1.0) / 2)
                 valids = (labels != 0.5)
-                return [atom_bond_graph, bond_angle_graph, valids, labels]
+                return [atom_bond_graph, bond_angle_graph,rdkit_features_list, valids, labels]
             else:
                 labels = np.array(label_list, 'float32')
-                return atom_bond_graph, bond_angle_graph, labels
+                return atom_bond_graph, bond_angle_graph,rdkit_features_list, labels
         else:
             if self.task_type == 'class':
                 labels = np.array(label_list)
                 # label: -1 -> 0, 1 -> 1
                 labels = ((labels + 1.0) / 2)
                 valids = (labels != 0.5)
-                return [atom_bond_graph, bond_angle_graph, valids, labels,smiles_list,atom_pos_list]
+                return [atom_bond_graph, bond_angle_graph, rdkit_features_list,valids, labels,smiles_list,atom_pos_list]
             else:
                 labels = np.array(label_list, 'float32')
-                return atom_bond_graph, bond_angle_graph, labels,smiles_list,atom_pos_list
+                return atom_bond_graph, bond_angle_graph,rdkit_features_list, labels,smiles_list,atom_pos_list
 

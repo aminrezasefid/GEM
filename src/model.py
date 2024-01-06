@@ -29,16 +29,19 @@ class DownstreamModel(nn.Layer):
     Docstring for DownstreamModel,it is an supervised 
     GNN model which predicts the tasks shown in num_tasks and so on.
     """
-    def __init__(self, model_config, compound_encoder,featurize=False):
+    def __init__(self, model_config, compound_encoder,rdkit_insize,featurize=False):
         super(DownstreamModel, self).__init__()
         self.task_type = model_config['task_type']
         self.num_tasks = model_config['num_tasks']
         self.featurize=featurize
         self.compound_encoder = compound_encoder
+        self.rdkit_mlp=nn.Sequential(*[
+            nn.Linear(rdkit_insize, 32),
+        ])
         self.norm = nn.LayerNorm(compound_encoder.graph_dim)
         self.mlp = MLP(
                 model_config['layer_num'],
-                in_size=compound_encoder.graph_dim,
+                in_size=2*compound_encoder.graph_dim,
                 hidden_size=model_config['hidden_size'],
                 out_size=self.num_tasks,
                 act=model_config['act'],
@@ -46,7 +49,7 @@ class DownstreamModel(nn.Layer):
         if self.task_type == 'class':
             self.out_act = nn.Sigmoid()
 
-    def forward(self, atom_bond_graphs, bond_angle_graphs):
+    def forward(self, atom_bond_graphs, bond_angle_graphs,rdkit_features):
         """
         Define the forward function,set the parameter layer options.compound_encoder 
         creates a graph data holders that attributes and features in the graph.
@@ -55,9 +58,10 @@ class DownstreamModel(nn.Layer):
         """
         node_repr, edge_repr, graph_repr = self.compound_encoder(atom_bond_graphs, bond_angle_graphs)
         graph_repr = self.norm(graph_repr)
+        rdkit_repr = self.rdkit_mlp(rdkit_features)
         if self.featurize:
             return graph_repr
-        pred = self.mlp(graph_repr)
+        pred = self.mlp(paddle.concat([graph_repr,rdkit_repr],axis=-1))
         if self.task_type == 'class':
             pred = self.out_act(pred)
         return pred
