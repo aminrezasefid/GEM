@@ -62,6 +62,8 @@ def feature_extract_class(args, model,dataset, collate_fn,datasetType):
             else:
                 final_dic["lbl_"+task_names[j]].append(None)
     import pickle
+    if  not os.path.exists(f'./{args.model_dir}'):
+        os.mkdir(f'./{args.model_dir}')
     with open(f'./{args.model_dir}/{args.dataset_name}-{datasetType}-{args.mode}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
 def feature_extract_regr(args, model,dataset, collate_fn,datasetType):
@@ -94,6 +96,8 @@ def feature_extract_regr(args, model,dataset, collate_fn,datasetType):
         for j in range(len(total_label[i])):
             final_dic["lbl_"+task_names[j]].append(total_label[i][j].item())
     import pickle
+    if  not os.path.exists(f'{args.model_dir}'):
+        os.mkdir(f'{args.model_dir}')
     with open(f'./{args.model_dir}/{args.dataset_name}-{datasetType}-{args.mode}.pickle', 'wb') as handle:
         pickle.dump(final_dic, handle, protocol=pickle.HIGHEST_PROTOCOL)
 def main(args):
@@ -131,11 +135,11 @@ def main(args):
         print(i, param[0], param[1].name)
 
     if not args.init_model is None and not args.init_model == "":
-        compound_encoder.set_state_dict(paddle.load(args.init_model))
+        model.set_state_dict(paddle.load(args.init_model))
         print('Load state_dict from %s' % args.init_model)
 
     print('Read preprocessing data...')
-    train_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TrainDataset")
+    train_dataset = InMemoryDatas et(npz_data_path=args.cached_data_path+"/TrainDataset")
     valid_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/ValidDataset")
     test_dataset = InMemoryDataset(npz_data_path=args.cached_data_path+"/TestDataset")
 
