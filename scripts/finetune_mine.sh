@@ -1,7 +1,8 @@
 #!/bin/bash
-datasets="esol "
+datasets="esol freesolv lipophilicity qm7 qm8 qm9 "
+datasets="esol freesolv lipophilicity "
 modes="rdkit "
-epoch=3
+epoch=100
 batch_size=128
 source activate gem
 for dataset in $datasets; do
