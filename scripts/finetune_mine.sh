@@ -9,7 +9,7 @@ for dataset in $datasets; do
         for num in $(seq 1 3); do
         {
           python finetune_regr.py \
-                  --batch_size=$batch_size --max_epoch=$epoch --dataset_name=$dataset \
+                  --batch_size=$batch_size --max_epoch=$epoch --dataset_name=$dataset --num_workers=1 \
                   --split_type=scaffold --data_path="./Raw_MoleculeNet/$dataset" \
                   --seed=$num \
                   --cached_data_path="./Pre-Processed_TestSplit_MoleculeNet/$dataset/$mode/" --compound_encoder_config=model_configs/geognn_l8.json \
