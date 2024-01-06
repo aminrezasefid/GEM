@@ -32,7 +32,7 @@ def main(args):
     #     and the rest as the test set. `ScaffoldSplitter` can better evaluate the generalization ability of the model on 
     #     out-of-distribution samples. Note that other splitters like `RandomSplitter`, `RandomScaffoldSplitter` 
     #     and `IndexSplitter` is also available."
-    
+    task_names=get_downstream_task_names(args.dataset_name, args.data_path)
     if args.task == 'data':
         print('Preprocessing data...')
         pickfile="cached_data/bbbp/bbbp.pkl"

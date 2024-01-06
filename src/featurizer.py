@@ -23,7 +23,6 @@ from rdkit.Chem import AllChem
 import pickle
 from pahelix.utils.compound_tools import mol_to_geognn_graph_data_MMFF3d
 from descriptastorus.descriptors import rdNormalizedDescriptors
-
 class DownstreamTransformFn(object):
     """Gen features for downstream model"""
     def __init__(self, is_inference=False,pos_file=None,mode="rdkit"):
@@ -97,6 +96,7 @@ class DownstreamCollateFn(object):
         label_list = []
         smiles_list=[]
         atom_pos_list=[]
+        rdkit_features_list=[]
         for data in data_list:
             smiles=data["smiles"]
             atom_pos=data["atom_pos"]
