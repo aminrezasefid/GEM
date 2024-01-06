@@ -1,7 +1,7 @@
 #!/bin/bash
-datasets="muv "
+datasets="esol "
 modes="rdkit "
-epoch=100
+epoch=3
 batch_size=128
 source activate gem
 for dataset in $datasets; do
