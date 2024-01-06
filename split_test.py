@@ -41,7 +41,6 @@ def main(args):
         transform_fn = DownstreamTransformFn(pos_file=pickfile,mode=args.mode)
         dataset.transform(transform_fn, num_workers=args.num_workers)
         dataset.save_data(args.cached_data_path)
-        return
     else:
         if args.cached_data_path is None or args.cached_data_path == "":
             dataset = get_dataset(args.dataset_name, args.data_path, task_names)

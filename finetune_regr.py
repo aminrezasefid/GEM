@@ -62,12 +62,11 @@ def train(
 
     list_loss = []
     model.train()
-    for atom_bond_graphs, bond_angle_graphs, labels,rdkit_features in data_gen:
+    for atom_bond_graphs, bond_angle_graphs,rdkit_features, labels in data_gen:
         if len(labels) < args.batch_size * 0.5:
             continue
         atom_bond_graphs = atom_bond_graphs.tensor()
         bond_angle_graphs = bond_angle_graphs.tensor()
-        rdkit_features = rdkit_features.tensor()
         scaled_labels = (labels - label_mean) / (label_std + 1e-5)
         scaled_labels = paddle.to_tensor(scaled_labels, 'float32')
         preds = model(atom_bond_graphs, bond_angle_graphs,rdkit_features)
@@ -98,11 +97,11 @@ def evaluate(
     total_pred = []
     total_label = []
     model.eval()
-    for atom_bond_graphs, bond_angle_graphs, labels in data_gen:
+    for atom_bond_graphs, bond_angle_graphs,rdkit_features, labels in data_gen:
         atom_bond_graphs = atom_bond_graphs.tensor()
         bond_angle_graphs = bond_angle_graphs.tensor()
         labels = paddle.to_tensor(labels, 'float32')
-        scaled_preds = model(atom_bond_graphs, bond_angle_graphs)
+        scaled_preds = model(atom_bond_graphs, bond_angle_graphs,rdkit_features)
         preds = scaled_preds.numpy() * label_std + label_mean
         total_pred.append(preds)
         total_label.append(labels.numpy())
@@ -161,7 +160,7 @@ def main(args):
 
     ### build model
     compound_encoder = GeoGNNModel(compound_encoder_config)
-    model = DownstreamModel(model_config, compound_encoder)
+    model = DownstreamModel(model_config, compound_encoder,200)
     if metric == 'square':
         criterion = nn.MSELoss()
     else:
@@ -276,11 +275,11 @@ def test(args, model, label_mean, label_std,
     smiles_list=[]
     atom_poses_list=[]
     model.eval()
-    for atom_bond_graphs, bond_angle_graphs, labels,smiles,atom_poses in data_gen:
+    for atom_bond_graphs, bond_angle_graphs, rdkit_features,labels,smiles,atom_poses in data_gen:
         atom_bond_graphs = atom_bond_graphs.tensor()
         bond_angle_graphs = bond_angle_graphs.tensor()
         labels = paddle.to_tensor(labels, 'float32')
-        scaled_preds = model(atom_bond_graphs, bond_angle_graphs)
+        scaled_preds = model(atom_bond_graphs, bond_angle_graphs,rdkit_features)
         preds = scaled_preds.numpy() * label_std + label_mean
         atom_poses_list.extend(atom_poses)
         smiles_list.extend(smiles)

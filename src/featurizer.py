@@ -16,7 +16,7 @@
 """
 downstream featurizer
 """
-
+import paddle
 import numpy as np
 import pgl
 from rdkit.Chem import AllChem
@@ -67,6 +67,7 @@ class DownstreamCollateFn(object):
             bond_angle_float_names,
             task_type,
             is_inference=False):
+        self.generator=rdNormalizedDescriptors.RDKit2DNormalized()
         self.atom_names = atom_names
         self.bond_names = bond_names
         self.bond_float_names = bond_float_names
@@ -112,11 +113,12 @@ class DownstreamCollateFn(object):
                     edge_feat={name: data[name].reshape([-1, 1]) for name in self.bond_angle_float_names})
             atom_bond_graph_list.append(ab_g)
             smiles_list.append(smiles)
-            rdkit_features_list.append(data["rdkit_features"])
+            features = data['rdkit_features']
+            rdkit_features_list.append(features)
             atom_pos_list.append(atom_pos)
             bond_angle_graph_list.append(ba_g)
             label_list.append(data['label'])
-
+        rdkit_features_list=paddle.to_tensor(rdkit_features_list)
         atom_bond_graph = pgl.Graph.batch(atom_bond_graph_list)
         bond_angle_graph = pgl.Graph.batch(bond_angle_graph_list)
         # TODO: reshape due to pgl limitations on the shape
