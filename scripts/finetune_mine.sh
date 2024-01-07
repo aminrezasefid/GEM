@@ -1,9 +1,9 @@
 #!/bin/bash
 datasets="esol freesolv lipophilicity qm7 qm8 qm9 "
-datasets="freesolv "
+datasets="lipophilicity "
 modes="rdkit "
 epoch=100
-batch_size=16
+batch_size=128
 source activate gem
 for dataset in $datasets; do
     for mode in $modes; do
