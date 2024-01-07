@@ -107,6 +107,8 @@ def evaluate(
         total_label.append(labels.numpy())
     total_pred = np.concatenate(total_pred, 0)
     total_label = np.concatenate(total_label, 0)
+    total_label = np.ma.array(total_label, mask=np.isnan(total_pred))
+    total_pred = np.ma.array(total_pred, mask=np.isnan(total_pred))
     if metric == 'rmse':
         return calc_rmse(total_label, total_pred)
     else:
